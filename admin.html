@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+<!--
+//////////////////////////////////////////////////
+// LETTE MENSA WEBSITE - (C) 2016/7 			//
+// https://github.com/LetteVerein/lette-mensa   //
+//////////////////////////////////////////////////
+-->
+
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="Leon Schlender, Leo Winter" name="author">
+	<meta content="noindex" name="robots">
+	<title>Mensa Plan Admin Tool - Lette-Verein</title>
+	<meta content="Speisepläne für Schüler und Mitarbeiter des Lette-Vereins. Mit dem Lette-Verein Mensa Plan hast du den Speiseplan deiner Mensa in der digitalen Fassung. Schau doch mal was es diese Woche zu essen gibt." name="description">
+	<!-- JS -->
+	<script src="https://cdn.jsdelivr.net/g/jquery@2.2.4,jquery.easing@1.3(jquery.easing.1.3.min.js),bootstrap@3.3.7,momentjs@2.17.1(moment-with-locales.min.js),bootstrap.datepicker-fork@1.6.4,selectize@0.12.4(js/standalone/selectize.min.js)"></script>
+	<!-- CSS -->
+	<link href="https://cdn.jsdelivr.net/g/bootstrap@3.3.7(css/bootstrap.min.css),bootstrap.datepicker-fork@1.6.4(css/bootstrap-datepicker.min.css),selectize@0.12.4(css/selectize.bootstrap3.css)" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lora|Montserrat:400,700" rel="stylesheet">
+	<!-- Mensa CSS -->
+	<link href="assets/css/lette-mensa.css" rel="stylesheet">
+	<!-- Mensa JS -->
+	<script src="assets/js/bootstrap-dialog.js"></script>
+	<script src="assets/js/lette-mensa.js"></script>
+	<script src="assets/js/lette-mensa_admin.js"></script>
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body data-spy="scroll" data-target=".navbar-fixed-top" id="page-top">
+	<!-- Nav -->
+
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-main-collapse" data-toggle="collapse" type="button"><i class="fa fa-bars"></i></button> <a class="navbar-brand page-scroll" href="#page-top"><span class="light">Admin Tool</span> <i class="fa fa-cutlery"></i> <span class="light">Mensa</span> Plan</a></div>
+
+		<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#page-top"><i class="fa fa-pencil-square-o"></i> Admin Tool</a>
+				</li>
+
+				<li><a href="index.html"><i class="fa fa-cutlery"></i> Mensa Plan</a>
+				</li>
+				<!--
+                <li>
+                    <a class="page-scroll" href="#mensa0">Küche</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#mensa1">Diätküche</a>
+                </li>
+                -->
+			</ul>
+		</div>
+	</nav>
+	<!-- Mensa Header -->
+
+	<header class="top">
+		<div class="top-body">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="loading_status">
+						</div>
+
+						<h1 class="mensa-heading"><i class="fa fa-cutlery"></i> Mensa Plan<br> Lette-Verein
+						</h1>
+					</div>
+
+					<div class="col-md-12">
+						<h1 class="text-center">Admin Tool</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- input sections -->
+
+	<section class="content-section text-center" id="input">
+		<div class="container-fluid">
+			<div class="row top-buffer">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="top-buffer">
+					</div>
+
+					<div class="panel panel-default">
+						<!--
+                    <div class="panel-heading input-group">
+                        <span class="input-group-addon" for="auth-pw">Passwort zum Speichern:</span>
+                        <input type="text" id="auth-pw" class="form-control" inf placeholder="Auth. Passwort...">
+                    </div>
+                -->
+
+						<center>
+							<div class="panel-body center-block" id="datepicker">
+							</div>
+						</center>
+
+						<div class="panel-footer">
+							<h4 class="top-buffer" id="date-display">Tag wählen...</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="content-section text-center" id="mensa0" style="display:none;">
+		<div class="container-fluid row">
+			<div class="col-md-12">
+				<h2 class="text-left" id="Mensa0">Normale Küche</h2>
+
+				<table class="table table-bordered text-left">
+					<thead>
+						<tr>
+							<th>Vorspeise</th>
+							<th>Vegetarisch</th>
+							<th>Vollkost</th>
+							<th>Beilagen</th>
+							<th>Dessert</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td><select class="select-name form-control" id="Mensa0-Vorspeise-name" placeholder="Name" type="text"></select>
+							</td>
+							<td><select class="select-name form-control" id="Mensa0-Vegetarisch-name" placeholder="Name" type="text"></select>
+							</td>
+							<td><select class="select-name form-control" id="Mensa0-Vollkost-name" placeholder="Name" type="text"></select>
+							</td>
+							<td><select class="select-name form-control" id="Mensa0-Beilagen-name" placeholder="Name" type="text"></select>
+							</td>
+							<td><select class="select-name form-control" id="Mensa0-Dessert-name" placeholder="Name" type="text"></select>
+							</td>
+						</tr>
+
+						<tr>
+							<td><input class="form-control" id="Mensa0-Vorspeise-beschreibung" placeholder="Beschreibung">
+							</td>
+							<td><input class="form-control" id="Mensa0-Vegetarisch-beschreibung" placeholder="Beschreibung">
+							</td>
+							<td><input class="form-control" id="Mensa0-Vollkost-beschreibung" placeholder="Beschreibung">
+							</td>
+							<td><input class="form-control" id="Mensa0-Beilagen-beschreibung" placeholder="Beschreibung">
+							</td>
+							<td><input class="form-control" id="Mensa0-Dessert-beschreibung" placeholder="Beschreibung">
+							</td>
+						</tr>
+
+						<tr>
+							<td><input class="form-control" id="Mensa0-Vorspeise-beachte" placeholder="Beachte">
+							</td>
+							<td><input class="form-control" id="Mensa0-Vegetarisch-beachte" placeholder="Beachte">
+							</td>
+							<td><input class="form-control" id="Mensa0-Vollkost-beachte" placeholder="Beachte">
+							</td>
+							<td><input class="form-control" id="Mensa0-Beilagen-beachte" placeholder="Beachte">
+							</td>
+							<td><input class="form-control" id="Mensa0-Dessert-beachte" placeholder="Beachte">
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-preis" placeholder="Preis" type="text"> <span class="input-group-addon">€</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-preis" placeholder="Preis" type="text"> <span class="input-group-addon">€</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vollkost-preis" placeholder="Preis" type="text"> <span class="input-group-addon">€</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Beilagen-preis" placeholder="Preis" type="text"> <span class="input-group-addon">€</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Dessert-preis" placeholder="Preis" type="text"><span class="input-group-addon">€</span>
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vollkost-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Beilagen-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Dessert-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vollkost-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Beilagen-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Dessert-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vollkost-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Beilagen-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Dessert-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-kolenhydrate" placeholder="Kolenhydrate" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-kolenhydrate" placeholder="Kolenhydrate" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Vollkost-kolenhydrate" placeholder="Kolenhydrate" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Beilagen-kolenhydrate" placeholder="Kolenhydrate" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa0-Dessert-kolenhydrate" placeholder="Kolenhydrate" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+						</tr>
+
+						<tr>
+							<td><select class="select-zusatzstoffe form-control" id="Mensa0-Vorspeise-zusatzstoffe" placeholder="Zusatzstoffe, Allergene"></select>
+							</td>
+							<td><select class="select-zusatzstoffe form-control" id="Mensa0-Vegetarisch-zusatzstoffe" placeholder="Zusatzstoffe, Allergene"></select>
+							</td>
+							<td><select class="select-zusatzstoffe form-control" id="Mensa0-Vollkost-zusatzstoffe" placeholder="Zusatzstoffe, Allergene"></select>
+							</td>
+							<td><select class="select-zusatzstoffe form-control" id="Mensa0-Beilagen-zusatzstoffe" placeholder="Zusatzstoffe, Allergene"></select>
+							</td>
+							<td><select class="select-zusatzstoffe form-control" id="Mensa0-Dessert-zusatzstoffe" placeholder="Zusatzstoffe, Allergene"></select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="panel panel-default">
+					<div class="panel-body center-block">
+						<div aria-label="Button Nav" class="btn-group" role="group">
+							<button class="btn btn-warning" id="back" type="submit">Zurück</button>
+							<button class="btn btn-primary" id="next">Weiter</button>
+							<button class="btn btn-danger" id="cancel" onclick="location.reload();" type="submit">Eintrag verwerfen</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="content-section text-center" id="mensa1" style="display:none;">
+		<div class="container-fluid row">
+			<div class="col-md-12">
+				<h2 class="text-left" id="Mensa1">Diätküche</h2>
+
+				<table class="table table-bordered text-left">
+					<thead>
+						<tr>
+							<th>Vorspeise</th>
+							<th>Leichte Vollkost</th>
+							<th>Gemüseteller</th>
+							<th>Dessert</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td><input class="select-name form-control" id="Mensa1-Vorspeise-name" placeholder="Name" type="text">
+							</td>
+							<td><input class="select-name form-control" id="Mensa1-Leichte-Vollkost-name" placeholder="Name" type="text">
+							</td>
+							<td><input class="select-name form-control" id="Mensa1-Gemüseteller-name" placeholder="Name" type="text">
+							</td>
+							<td><input class="select-name form-control" id="Mensa1-Dessert-name" placeholder="Name" type="text">
+							</td>
+						</tr>
+
+						<tr>
+							<td><input class="form-control" id="Mensa1-Vorspeise-beschreibung" placeholder="Beschreibung" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Leichte-Vollkost-beschreibung" placeholder="Beschreibung" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Gemüseteller-beschreibung" placeholder="Beschreibung" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Dessert-beschreibung" placeholder="Beschreibung" type="text">
+							</td>
+						</tr>
+
+						<tr>
+							<td><input class="form-control" id="Mensa1-Vorspeise-beachte" placeholder="Beachte" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Leichte-Vollkost-beachte" placeholder="Beachte" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Gemüseteller-beachte" placeholder="Beachte" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Dessert-beachte" placeholder="Beachte" type="text">
+							</td>
+						</tr>
+
+						<tr>
+							<td><input class="form-control" id="Mensa1-Vorspeise-preis" placeholder="Preis" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Leichte-Vollkost-preis" placeholder="Preis" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Gemüseteller-preis" placeholder="Preis" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Dessert-preis" placeholder="Preis" type="text">
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Vorspeise-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Leichte-Vollkost-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Gemüseteller-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Dessert-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Vorspeise-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Leichte-Vollkost-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Gemüseteller-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Dessert-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Vorspeise-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Leichte-Vollkost-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Gemüseteller-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+							<td>
+								<div class="input-group"><input class="form-control" id="Mensa1-Dessert-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+							</td>
+						</tr>
+
+						<tr>
+							<td><input class="form-control" id="Mensa1-Vorspeise-kolenhydrate" placeholder="Kolenhydrate" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Leichte-Vollkost-kolenhydrate" placeholder="Kolenhydrate" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Gemüseteller-kolenhydrate" placeholder="Kolenhydrate" type="text">
+							</td>
+							<td><input class="form-control" id="Mensa1-Dessert-kolenhydrate" placeholder="Kolenhydrate" type="text">
+							</td>
+						</tr>
+
+						<tr>
+							<td><input class="select-zusatzstoffe form-control" id="Mensa1-Vorspeise-zusatzstoffe" placeholder="Zusatzstoffe, Allergene">
+							</td>
+							<td><input class="select-zusatzstoffe form-control" id="Mensa1-Leichte-Vollkost-zusatzstoffe" placeholder="Zusatzstoffe, Allergene">
+							</td>
+							<td><input class="select-zusatzstoffe form-control" id="Mensa1-Gemüseteller-zusatzstoffe" placeholder="Zusatzstoffe, Allergene">
+							</td>
+							<td><input class="select-zusatzstoffe form-control" id="Mensa1-Dessert-zusatzstoffe" placeholder="Zusatzstoffe, Allergene">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="panel panel-default">
+					<div class="panel-body center-block">
+						<div aria-label="Button Nav" class="btn-group" role="group"><button class="btn btn-warning" id="back" type="submit">Zurück</button> <button class="btn btn-primary" id="cancel" onclick="location.reload();" type="submit">Eintrag verwerfen</button></div>
+					</div>
+
+					<div class="panel-footer"><button class="btn btn-danger" id="SubmitAndSave" type="submit">Absenden und Speichern</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container-fluid top-buffer text-center">
+			<ul class="list-inline">
+				<li><a target="_blank" href="https://github.com/LetteVerein/lette-mensa" class="btn btn-default"><i class="fa fa-github fa-fw"></i><span>Open Source Projekt</span></a></li>
+				<li><a target="_blank" href="http://www.letteverein.berlin/" class="btn btn-default"><span><i class="fa fa-copyright fa-fw" aria-hidden="true"></i>2015-<span id="date-yyyy"></span>, Lette-Verein Berlin</span></a></li>
+				<li><a target="_blank" href="http://www.letteverein.berlin/impressum/" class="btn btn-default"><i class="fa fa-external-link-square fa-fw"></i><span>Impressum</span></a></li>
+			</ul>
+		</div>
+	</footer>
+</body>
+
+</html>

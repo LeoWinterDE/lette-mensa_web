@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="de">
+<!--
+//////////////////////////////////////////////////
+// LETTE MENSA WEBSITE - (C) 2016/7 			//
+// https://github.com/LetteVerein/lette-mensa   //
+//////////////////////////////////////////////////
+-->
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Leon Schlender, Leo Winter" name="author">
+    <title>Mensa Plan - Lette-Verein</title>
+    <meta name="description" content="Speisepläne für Schüler und Mitarbeiter des Lette-Vereins. Mit dem Lette-Verein Mensa Plan hast du den Speiseplan deiner Mensa in der digitalen Fassung. Schau doch mal was es diese Woche zu essen gibt.">
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/g/jquery@2.2.4,momentjs@2.17.1(moment-with-locales.min.js),bootstrap@3.3.7,jquery.easing@1.3(jquery.easing.1.3.min.js)"></script>
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/g/bootstrap@3.3.7(css/bootstrap.min.css)" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora|Montserrat:400,700" rel="stylesheet">
+    <!-- Mensa CSS -->
+    <link href="assets/css/lette-mensa.css" rel="stylesheet">
+    <!-- Mensa JS -->
+    <script src="assets/js/lette-mensa.js"></script>
+    <script src="assets/js/lette-mensa_plan.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- Nav -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"><i class="fa fa-bars"></i></button>
+            <a class="navbar-brand page-scroll" href="#page-top">
+                <span class="light">Lette-Verein </span>
+                <i class="fa fa-cutlery"></i>
+                <span class="light">Mensa </span> Plan
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#page-top"><i class="fa fa-cutlery"></i> Mensa Plan</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#mensa0">Küche</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#mensa1">Diätküche</a>
+                </li>
+                <!--
+                <li>
+                    <a class="page-scroll" href="#app"><i class="fa fa-android"></i> Android App</a>
+                </li>
+                -->
+            </ul>
+        </div>
+    </nav>
+    <!-- Mensa Header -->
+    <header class="top">
+        <div class="top-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="loading_status"></div>
+                        <h1 class="mensa-heading"><i class="fa fa-cutlery"></i> Mensa Plan <br> Lette-Verein</h1>
+                        <p class="top-text">Speisepläne für Schüler und Mitarbeiter des Lette-Vereins. <br class="visible-lg">Mit dem Mensa Plan hast du den Speiseplan deiner Mensa in der digitalen Fassung.</p>
+                        <a href="#mensa0" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- mensa0 (Normal) Section -->
+    <section class="content-section text-center mensa-section">
+        <div id="mensa0" class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-centered">
+                    <nav aria-label="Select Day">
+                        <ul id="daymenu" class="pagination pagination-lg">
+                            <li class="active"><a href="#" aria-label="Today"><span id="d0" aria-hidden="true">Heute</span></a></li>
+                            <li><a href="#" aria-label="Tomorrow"><span id="d1" aria-hidden="true">Morgen</span></a></li>
+                            <li><a href="#" aria-label="Day after tomorrow"><span id="d2" aria-hidden="true">Übermorgen</span></a></li>
+                            <li><a href="#" aria-label="The next Day..."><span id="d3" aria-hidden="true">...</span></a></li>
+                        </ul>
+                    </nav>
+                    <!--<div class="visible-xs">
+                        <div class="btn-group" role="group" aria-label="day-nav">
+                            <button id="d0" type="button" class="btn btn-default">Heute</button>
+                            <button id="d1" type="button" class="btn btn-default">Morgen</button>
+                            <button id="d2" type="button" class="btn btn-default">Übermorgen</button>
+                            <button id="d3" type="button" class="btn btn-default">...</button>
+                        </div>
+                    </div>
+                    <div class="visible-sm visible-md visible-lg">
+                        <div class="btn-group" role="group" aria-label="day-nav">
+                            <button id="d0" type="button" class="btn btn-default btn-lg">Heute</button>
+                            <button id="d1" type="button" class="btn btn-default btn-lg">Morgen</button>
+                            <button id="d2" type="button" class="btn btn-default btn-lg">Übermorgen</button>
+                            <button id="d3" type="button" class="btn btn-default btn-lg">...</button>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <h2 class="text-center">Normale Küche</h2>
+                <div id="vorspeise" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-15">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 id="type">Vorspeise</h4>
+                            <div class="panel-body text-center">
+                                <h3 class="panel-center"><span id="name"></span></h3>
+                                <p><span id="beschreibung"></span></p>
+                                <p class="bg-warning"><span id="beachte"></span></p>
+                                <h4><span id="preis"></span> €</h4>
+                            </div>
+                            <div id="extra-info" class="panel-footer">
+                                <p>Kcal: <span id="kcal"></span>g</p>
+                                <p>Fette: <span id="fette"></span>g</p>
+                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                                <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="vegetarisch" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-15">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 id="type">Vegetarisch</h4>
+                            <div class="panel-body text-center">
+                                <h3 class="panel-center"><span id="name"></span></h3>
+                                <p><span id="beschreibung"></span></p>
+                                <p class="bg-warning"><span id="beachte"></span></p>
+                                <h4><span id="preis"></span> €</h4>
+                            </div>
+                            <div id="extra-info" class="panel-footer">
+                                <p>Kcal: <span id="kcal"></span>g</p>
+                                <p>Fette: <span id="fette"></span>g</p>
+                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                                <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="vollkost" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-15">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 id="type">Vollkost</h4>
+                            <div class="panel-body text-center">
+                                <h3 class="panel-center"><span id="name"></span></h3>
+                                <p><span id="beschreibung"></span></p>
+                                <p class="bg-warning"><span id="beachte"></span></p>
+                                <h4><span id="preis"></span> €</h4>
+                            </div>
+                            <div id="extra-info" class="panel-footer">
+                                <p>Kcal: <span id="kcal"></span>g</p>
+                                <p>Fette: <span id="fette"></span>g</p>
+                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                                <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="beilagen" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-15">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 id="type">Beilagen</h4>
+                            <div class="panel-body text-center">
+                                <h3 class="panel-center"><span id="name"></span></h3>
+                                <p><span id="beschreibung"></span></p>
+                                <p class="bg-warning"><span id="beachte"></span></p>
+                                <h4><span id="preis"></span> €</h4>
+                            </div>
+                            <div id="extra-info" class="panel-footer">
+                                <p>Kcal: <span id="kcal"></span>g</p>
+                                <p>Fette: <span id="fette"></span>g</p>
+                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                                <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="dessert" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-15">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 id="type">Dessert</h4>
+                            <div class="panel-body text-center">
+                                <h3 class="panel-center"><span id="name"></span></h3>
+                                <p><span id="beschreibung"></span></p>
+                                <p class="bg-warning"><span id="beachte"></span></p>
+                                <h4><span id="preis"></span> €</h4>
+                            </div>
+                            <div id="extra-info" class="panel-footer">
+                                <p>Kcal: <span id="kcal"></span>g</p>
+                                <p>Fette: <span id="fette"></span>g</p>
+                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                                <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mensa1 (Diätküche) Section -->
+        <div id="mensa1" class="container-fluid">
+            <div class="row">
+                <h2 class="text-center">Diätküche</h2>
+                <div id="vorspeise" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 id="type">Vorspeise</h4>
+                            <div class="panel-body text-center">
+                                <h3 class="panel-center"><span id="name"></span></h3>
+                                <p><span id="beschreibung"></span></p>
+                                <p class="bg-warning"><span id="beachte"></span></p>
+                                <h4><span id="preis"></span> €</h4>
+                            </div>
+                            <div id="extra-info" class="panel-footer">
+                                <p>Kcal: <span id="kcal"></span>g</p>
+                                <p>Fette: <span id="fette"></span>g</p>
+                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                                <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="leichte-vollkost" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 id="type">Leichte Vollkost</h4>
+                            <div class="panel-body text-center">
+                                <h3 class="panel-center"><span id="name"></span></h3>
+                                <p><span id="beschreibung"></span></p>
+                                <p class="bg-warning"><span id="beachte"></span></p>
+                                <h4><span id="preis"></span> €</h4>
+                            </div>
+                            <div id="extra-info" class="panel-footer">
+                                <p>Kcal: <span id="kcal"></span>g</p>
+                                <p>Fette: <span id="fette"></span>g</p>
+                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                                <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="gemüseteller" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 id="type">Gemüseteller</h4>
+                            <div class="panel-body text-center">
+                                <h3 class="panel-center"><span id="name"></span></h3>
+                                <p><span id="beschreibung"></span></p>
+                                <p class="bg-warning"><span id="beachte"></span></p>
+                                <h4><span id="preis"></span> €</h4>
+                            </div>
+                            <div id="extra-info" class="panel-footer">
+                                <p>Kcal: <span id="kcal"></span>g</p>
+                                <p>Fette: <span id="fette"></span>g</p>
+                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                                <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="dessert" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 id="type">Dessert</h4>
+                            <div class="panel-body text-center">
+                                <h3 class="panel-center"><span id="name"></span></h3>
+                                <p><span id="beschreibung"></span></p>
+                                <p class="bg-warning"><span id="beachte"></span></p>
+                                <h4><span id="preis"></span> €</h4>
+                            </div>
+                            <div id="extra-info" class="panel-footer">
+                                <p>Kcal: <span id="kcal"></span>g</p>
+                                <p>Fette: <span id="fette"></span>g</p>
+                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                                <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- App -->
+    <!--<section id="app" class="content-section text-center">
+        <div class="app-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center">Android App</h2>
+                        <h2 class="text-center">#ToDo</h2>
+                        <div class="col-md-6">
+                            <img src="https://www.android.com/static/2016/img/home/os-section/phone_1x.png" alt="Android App">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="center-block">
+                                <a href='#'><img alt='Jetzt bei Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/de_badge_web_generic.png'/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>-->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid text-center">
+            <ul class="list-inline">
+                <li><a target="_blank" href="https://github.com/LetteVerein/lette-mensa" class="btn btn-default"><i class="fa fa-github fa-fw"></i><span>Open Source Projekt</span></a></li>
+                <li><a target="_blank" href="http://www.letteverein.berlin/" class="btn btn-default"><span><i class="fa fa-copyright fa-fw" aria-hidden="true"></i>2015-<span id="date-yyyy"></span>, Lette-Verein Berlin</span></a></li>
+                <li><a target="_blank" href="http://www.letteverein.berlin/impressum/" class="btn btn-default"><i class="fa fa-external-link-square fa-fw"></i><span>Impressum</span></a></li>
+                <li><a target="_blank" href="admin.html" class="btn btn-default"><i class="fa fa-pencil fa-fw"></i><span>Speisen Eintragen</span></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
