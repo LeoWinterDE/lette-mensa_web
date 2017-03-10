@@ -195,7 +195,7 @@ function prepDataforPost() {
             }
         };
 
-        // rename of 'date' sinde dataObj to the real date lik '2000-01-01'
+        // rename of 'date' sinde dataObj to the real date like '2000-01-01'
         dataObj[mensa][date] = dataObj[mensa].dateToday
         delete dataObj[mensa].dateToday
     };
