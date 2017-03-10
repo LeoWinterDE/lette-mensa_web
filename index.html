@@ -73,7 +73,8 @@
                     <div class="col-md-12">
                         <div id="loading_status"></div>
                         <h1 class="mensa-heading"><i class="fa fa-cutlery"></i> Mensa Plan <br> Lette-Verein</h1>
-                        <p class="top-text">Speisepläne für Schüler und Mitarbeiter des Lette-Vereins. <br class="visible-lg">Mit dem Mensa Plan hast du den Speiseplan deiner Mensa in der digitalen Fassung.</p>
+                        <p class="top-text">Speisepläne für Schüler und Mitarbeiter des Lette-Vereins. <br class="visible-lg">Mit dem Mensa Plan
+                            hast du den Speiseplan deiner Mensa in der digitalen Fassung.</p>
                         <a href="#mensa0" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
@@ -82,38 +83,33 @@
             </div>
         </div>
     </header>
-    <!-- mensa0 (Normal) Section -->
     <section class="content-section text-center mensa-section">
-        <div id="mensa0" class="container-fluid">
+        <div class="container-fluid">
+            <!-- select day nav -->
             <div class="row">
                 <div class="col-md-12 col-centered">
-                    <nav aria-label="Select Day">
+                    <nav aria-label="Select Day" class="visible-sm visible-md visible-lg">
                         <ul id="daymenu" class="pagination pagination-lg">
                             <li class="active"><a href="#" aria-label="Today"><span id="d0" aria-hidden="true">Heute</span></a></li>
                             <li><a href="#" aria-label="Tomorrow"><span id="d1" aria-hidden="true">Morgen</span></a></li>
                             <li><a href="#" aria-label="Day after tomorrow"><span id="d2" aria-hidden="true">Übermorgen</span></a></li>
                             <li><a href="#" aria-label="The next Day..."><span id="d3" aria-hidden="true">...</span></a></li>
+                            <li><a href="#" aria-label="The next Day..."><span id="d4" aria-hidden="true">...</span></a></li>
                         </ul>
                     </nav>
-                    <!--<div class="visible-xs">
-                        <div class="btn-group" role="group" aria-label="day-nav">
-                            <button id="d0" type="button" class="btn btn-default">Heute</button>
-                            <button id="d1" type="button" class="btn btn-default">Morgen</button>
-                            <button id="d2" type="button" class="btn btn-default">Übermorgen</button>
-                            <button id="d3" type="button" class="btn btn-default">...</button>
-                        </div>
-                    </div>
-                    <div class="visible-sm visible-md visible-lg">
-                        <div class="btn-group" role="group" aria-label="day-nav">
-                            <button id="d0" type="button" class="btn btn-default btn-lg">Heute</button>
-                            <button id="d1" type="button" class="btn btn-default btn-lg">Morgen</button>
-                            <button id="d2" type="button" class="btn btn-default btn-lg">Übermorgen</button>
-                            <button id="d3" type="button" class="btn btn-default btn-lg">...</button>
-                        </div>
-                    </div>-->
+                    <nav aria-label="Select Day" class="visible-xs">
+                        <ul id="daymenu" class="pagination pagination-lg">
+                            <button id="d0-tiny" type="button" class="btn btn-default">...</button>
+                            <button id="d1-tiny" type="button" class="btn btn-default">...</button>
+                            <button id="d2-tiny" type="button" class="btn btn-default">...</button>
+                            <button id="d3-tiny" type="button" class="btn btn-default">...</button>
+                            <button id="d4-tiny" type="button" class="btn btn-default">...</button>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-            <div class="row top-buffer">
+            <!-- mensa0 (Normal) Section -->
+            <div id="mensa0" class="row top-buffer">
                 <h2 class="text-center">Normale Küche</h2>
                 <div id="vorspeise" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-15">
                     <div class="panel panel-default">

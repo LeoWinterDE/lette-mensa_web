@@ -26,76 +26,101 @@ $(document).ready(function init() {
 
 // # buttons for changing the day.
 function setButtons(date) {
-    const mensaID = ["mensa0", "mensa1"], buttons = ["d0", "d1", "d2", "d3"];
-    let d0 = getDatePlus(date, +0, "DD.MM"), d0name = getDayName(date),
-        d1 = getDatePlus(date, +1, "DD.MM"), d1name = getDayName(getDatePlus(date, +1, "YYYY-MM-DD")),
-        d2 = getDatePlus(date, +2, "DD.MM"), d2name = getDayName(getDatePlus(date, +2, "YYYY-MM-DD")),
-        d3 = getDatePlus(date, +3, "DD.MM"), d3name = getDayName(getDatePlus(date, +3, "YYYY-MM-DD")),
-        d4 = getDatePlus(date, +4, "DD.MM"), d4name = getDayName(getDatePlus(date, +4, "YYYY-MM-DD")),
-        d5 = getDatePlus(date, +5, "DD.MM"), d5name = getDayName(getDatePlus(date, +5, "YYYY-MM-DD")),
-        d6 = getDatePlus(date, +6, "DD.MM"), d6name = getDayName(getDatePlus(date, +6, "YYYY-MM-DD"));
-    for (a = 0; a < mensaID.length; a++) {
-        if (getDayName(date) == "Samstag") {
-            $("#" + mensaID[a] + " #" + buttons[0]).text(error);
-            $("#" + mensaID[a] + " #" + buttons[1]).text(d2name + " (" + d2 + ")");
-            $("#" + mensaID[a] + " #" + buttons[2]).text(d3name + " (" + d3 + ")");
-            $("#" + mensaID[a] + " #" + buttons[3]).text(d4name + " (" + d4 + ")");
-            $("#" + mensaID[a] + " #" + buttons[3]).text(d5name + " (" + d5 + ")");
-        }
-        else if (getDayName(date) == "Sonntag") {
-            $("#" + mensaID[a] + " #" + buttons[0]).text(error);
-            $("#" + mensaID[a] + " #" + buttons[1]).text(d1name + " (" + d1 + ")");
-            $("#" + mensaID[a] + " #" + buttons[2]).text(d2name + " (" + d2 + ")");
-            $("#" + mensaID[a] + " #" + buttons[3]).text(d3name + " (" + d3 + ")");
-            $("#" + mensaID[a] + " #" + buttons[3]).text(d4name + " (" + d4 + ")");
-        }
-        else if (getDayName(date) == "Mittwoch") {
-            $("#" + mensaID[a] + " #" + buttons[0]).text(d0name + " (" + d0 + ")");
-            $("#" + mensaID[a] + " #" + buttons[1]).text(d1name + " (" + d1 + ")");
-            $("#" + mensaID[a] + " #" + buttons[2]).text(d2name + " (" + d2 + ")");
-            $("#" + mensaID[a] + " #" + buttons[3]).text(d5name + " (" + d5 + ")");
-            $("#" + mensaID[a] + " #" + buttons[3]).text(d6name + " (" + d6 + ")");
-        }
-        else if (getDayName(date) == "Donnerstag") {
-            $("#" + mensaID[a] + " #" + buttons[0]).text(d0name + " (" + d0 + ")");
-            $("#" + mensaID[a] + " #" + buttons[1]).text(d1name + " (" + d1 + ")");
-            $("#" + mensaID[a] + " #" + buttons[2]).text(d4name + " (" + d4 + ")");
-            $("#" + mensaID[a] + " #" + buttons[3]).text(d5name + " (" + d5 + ")");
-            $("#" + mensaID[a] + " #" + buttons[3]).text(d6name + " (" + d6 + ")");
-        }
-        else if (getDayName(date) == "Freitag") {
-            $("#" + mensaID[a] + " #" + buttons[0]).text(d0name + " (" + d0 + ")");
-            $("#" + mensaID[a] + " #" + buttons[1]).text(d3name + " (" + d3 + ")");
-            $("#" + mensaID[a] + " #" + buttons[2]).text(d4name + " (" + d4 + ")");
-            $("#" + mensaID[a] + " #" + buttons[3]).text(d5name + " (" + d5 + ")");
-            $("#" + mensaID[a] + " #" + buttons[3]).text(d6name + " (" + d6 + ")");
-        }
-        else {
-            $("#" + mensaID[a] + " #" + buttons[0]).text(d0name + " (" + d0 + ")");
-            $("#" + mensaID[a] + " #" + buttons[1]).text(d1name + " (" + d1 + ")");
-            $("#" + mensaID[a] + " #" + buttons[2]).text(d2name + " (" + d2 + ")");
-            $("#" + mensaID[a] + " #" + buttons[3]).text(d3name + " (" + d3 + ")");
-            //$("#"+mensaID[a]+" #"+buttons[4]).text(d4name+" ("+d4+")");
-        };
+    const buttons = ["d0", "d1", "d2", "d3", "d4"];
+    let d0 = getDatePlus(date, +0, "DD.MM"), d0name = getDayName(date), d0nameshort = moment(date).locale(momentLang).format("dd"),
+        d1 = getDatePlus(date, +1, "DD.MM"), d1name = getDayName(getDatePlus(date, +1, "YYYY-MM-DD")), d1nameshort = moment(getDatePlus(date, +1, "YYYY-MM-DD")).locale(momentLang).format("dd"),
+        d2 = getDatePlus(date, +2, "DD.MM"), d2name = getDayName(getDatePlus(date, +2, "YYYY-MM-DD")), d2nameshort = moment(getDatePlus(date, +2, "YYYY-MM-DD")).locale(momentLang).format("dd"),
+        d3 = getDatePlus(date, +3, "DD.MM"), d3name = getDayName(getDatePlus(date, +3, "YYYY-MM-DD")), d3nameshort = moment(getDatePlus(date, +3, "YYYY-MM-DD")).locale(momentLang).format("dd"),
+        d4 = getDatePlus(date, +4, "DD.MM"), d4name = getDayName(getDatePlus(date, +4, "YYYY-MM-DD")), d4nameshort = moment(getDatePlus(date, +4, "YYYY-MM-DD")).locale(momentLang).format("dd"),
+        d5 = getDatePlus(date, +5, "DD.MM"), d5name = getDayName(getDatePlus(date, +5, "YYYY-MM-DD")), d5nameshort = moment(getDatePlus(date, +5, "YYYY-MM-DD")).locale(momentLang).format("dd"),
+        d6 = getDatePlus(date, +6, "DD.MM"), d6name = getDayName(getDatePlus(date, +6, "YYYY-MM-DD")), d6nameshort = moment(getDatePlus(date, +6, "YYYY-MM-DD")).locale(momentLang).format("dd");
+    if (getDayName(date) == "Samstag") {
+        let t0 = d0, t1 = d3; t2 = d4, t3 = d5, t4 = d6;
+        let t0name = d0name, t1name = d3ame, t2name = d4name, t3name = d5name, t4name = d6name;
+        let t0nameshort = d0nameshort; t1nameshort = d3nameshort, t2nameshort = d4nameshort, t3nameshort = d5nameshort, t4nameshort= d6nameshort;
+        $("#d0").text(error).on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1").text(t1name + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +2, "YYYY-MM-DD")); });
+        $("#d2").text(t2name + " (" + t2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +3, "YYYY-MM-DD")); });
+        $("#d3").text(t3name + " (" + t3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +4, "YYYY-MM-DD")); });
+        $("#d4").text(t4name + " (" + t4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +5, "YYYY-MM-DD")); });
+        $("#d0-tiny").text(error).on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1-tiny").text(t1nameshort + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +2, "YYYY-MM-DD")); });
+        $("#d2-tiny").text(t2nameshort + " (" + t2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +3, "YYYY-MM-DD")); });
+        $("#d3-tiny").text(t3nameshort + " (" + t3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +4, "YYYY-MM-DD")); });
+        $("#d4-tiny").text(t4nameshort + " (" + t4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +5, "YYYY-MM-DD")); });
     }
-    for (a = 0; a < mensaID.length; a++) {
-        $("#" + mensaID[a] + " #" + buttons[0]).on("click", function (event) {
-            event.preventDefault();
-            AssignmentByDate(date);
-        });
-        $("#" + mensaID[a] + " #" + buttons[1]).on("click", function (event) {
-            event.preventDefault();
-            AssignmentByDate(getDatePlus(date, +1, "YYYY-MM-DD"));
-        });
-        $("#" + mensaID[a] + " #" + buttons[2]).on("click", function (event) {
-            event.preventDefault();
-            AssignmentByDate(getDatePlus(date, +2, "YYYY-MM-DD"));
-        });
-        $("#" + mensaID[a] + " #" + buttons[3]).on("click", function (event) {
-            event.preventDefault();
-            AssignmentByDate(getDatePlus(date, +3, "YYYY-MM-DD"));
-        });
+    else if (getDayName(date) == "Sonntag") {
+        let t0 = d0, t1 = d2; t2 = d3, t3 = d4, t4 = d5;
+        let t0name = d0name, t1name = d2ame, t2name = d3name, t3name = d4name, t4name = d5name;
+        let t0nameshort = d0nameshort; t1nameshort = d1nameshort, t2nameshort = d3nameshort, t3nameshort = d4nameshort, t4nameshort= d5nameshort;
+        $("#d0").text(error).on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1").text(t1name + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +1, "YYYY-MM-DD")); });
+        $("#d2").text(t2name + " (" + t2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +2, "YYYY-MM-DD")); });
+        $("#d3").text(t3name + " (" + t3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +3, "YYYY-MM-DD")); });
+        $("#d4").text(t4name + " (" + t4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +4, "YYYY-MM-DD")); });
+        $("#d0-tiny").text(t0nameshort + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1-tiny").text(t1nameshort + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +1, "YYYY-MM-DD")); });
+        $("#d2-tiny").text(t2nameshort + " (" + t2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +2, "YYYY-MM-DD")); });
+        $("#d3-tiny").text(t3nameshort + " (" + t3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +3, "YYYY-MM-DD")); });
+        $("#d4-tiny").text(t4nameshort + " (" + t4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +4, "YYYY-MM-DD")); });
     }
+    else if (getDayName(date) == "Mittwoch") {
+        let t0 = d0, t1 = d1; t2 = d2, t3 = d5, t4 = d6;
+        let t0name = d0name, t1name = d1name, t2name = d2name, t3name = d5name, t4name = d6name;
+        let t0nameshort = d0nameshort; t1nameshort = d1nameshort, t2nameshort = d2nameshort, t3nameshort = d5nameshort, t4nameshort= d6nameshort;
+        $("#d0").text(t0name + " (" + t0 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1").text(t1name + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +1, "YYYY-MM-DD")); });
+        $("#d2").text(t2name + " (" + t2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +2, "YYYY-MM-DD")); });
+        $("#d3").text(t3name + " (" + t3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +5, "YYYY-MM-DD")); });
+        $("#d4").text(t4name + " (" + t4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +6, "YYYY-MM-DD")); });
+        $("#d0-tiny").text(t0nameshort + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1-tiny").text(t1nameshort + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +1, "YYYY-MM-DD")); });
+        $("#d2-tiny").text(t2nameshort + " (" + t2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +2, "YYYY-MM-DD")); });
+        $("#d3-tiny").text(t3nameshort + " (" + t3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +5, "YYYY-MM-DD")); });
+        $("#d4-tiny").text(t4nameshort + " (" + t4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +6, "YYYY-MM-DD")); });
+    }
+    else if (getDayName(date) == "Donnerstag") {
+        let t0 = d0, t1 = d1; t2 = d4, t3 = d5, t4 = d6;
+        let t0name = d0name, t1name = d1name, t2name = d3name, t3name = d5name, t4name = d6name;
+        let t0nameshort = d0nameshort; t1nameshort = d1nameshort, t2nameshort = d3nameshort, t3nameshort = d5nameshort, t4nameshort= d6nameshort;
+        $("#d0").text(t0name + " (" + t0 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1").text(t1name + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +1, "YYYY-MM-DD")); });
+        $("#d2").text(t2name + " (" + t2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +5, "YYYY-MM-DD")); });
+        $("#d3").text(t3name + " (" + t3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +6, "YYYY-MM-DD")); });
+        $("#d4").text(t4name + " (" + t4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +7, "YYYY-MM-DD")); });
+        $("#d0-tiny").text(t0nameshort + " (" + t0 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1-tiny").text(t1nameshort + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +1, "YYYY-MM-DD")); });
+        $("#d2-tiny").text(t2nameshort + " (" + t2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +5, "YYYY-MM-DD")); });
+        $("#d3-tiny").text(t3nameshort + " (" + t3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +6, "YYYY-MM-DD")); });
+        $("#d4-tiny").text(t4nameshort + " (" + t4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +7, "YYYY-MM-DD")); });
+    }
+    else if (getDayName(date) == "Freitag") {
+        let t0 = d0, t1 = d3; t2 = d4, t3 = d5, t4 = d6;
+        let t0name = d0name, t1name = d3name, t2name = d4name, t3name = d5name, t4name = d6name;
+        let t0nameshort = d0nameshort; t1nameshort = d3nameshort, t2nameshort = d4nameshort, t3nameshort = d5nameshort, t4nameshort= d6nameshort;
+        $("#d0").text(t0name + " (" + t0 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1").text(t1name + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +3, "YYYY-MM-DD")); });
+        $("#d2").text(t2name + " (" + t2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +4, "YYYY-MM-DD")); });
+        $("#d3").text(t3name + " (" + t3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +5, "YYYY-MM-DD")); });
+        $("#d4").text(t4name + " (" + t4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +6, "YYYY-MM-DD")); });
+        $("#d0-tiny").text(t0nameshort + " (" + t0 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1-tiny").text(t1nameshort + " (" + t1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +3, "YYYY-MM-DD")); });
+        $("#d2-tiny").text(t2nameshort + " (" + t2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +4, "YYYY-MM-DD")); });
+        $("#d3-tiny").text(t3nameshort + " (" + t3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +5, "YYYY-MM-DD")); });
+        $("#d4-tiny").text(t4nameshort + " (" + t4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +6, "YYYY-MM-DD")); });
+    }
+    else { // catch Mo and Th.
+        $("#d0").text(d0name + " (" + d0 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1").text(d1name + " (" + d1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +1, "YYYY-MM-DD")); });
+        $("#d2").text(d2name + " (" + d2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +2, "YYYY-MM-DD")); });
+        $("#d3").text(d3name + " (" + d3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +3, "YYYY-MM-DD")); });
+        $("#d4").text(d4name + " (" + d4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +4, "YYYY-MM-DD")); });
+        $("#d0-tiny").text(d0nameshort + " (" + d0 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +0, "YYYY-MM-DD")); });
+        $("#d1-tiny").text(d1nameshort + " (" + d1 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +1, "YYYY-MM-DD")); });
+        $("#d2-tiny").text(d1nameshort + " (" + d2 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +2, "YYYY-MM-DD")); });
+        $("#d3-tiny").text(d1nameshort + " (" + d3 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +3, "YYYY-MM-DD")); });
+        $("#d4-tiny").text(d1nameshort + " (" + d4 + ")").on("click", function (event) { event.preventDefault(); AssignmentByDate(getDatePlus(date, +4, "YYYY-MM-DD")); });
+    };
     console.debug("Buttons names are set.")
 };
 
