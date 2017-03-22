@@ -123,7 +123,7 @@ function postRoutine() {
         postJSON(dataReadyForPost);
     } catch (error) {
         console.log("Error: " + error)
-        alert(errorAPIOffline)
+        //alert(errorAPIOffline)
     }
     return successPost
 }

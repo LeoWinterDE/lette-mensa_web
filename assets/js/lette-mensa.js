@@ -112,19 +112,27 @@ function loadJSON(date) {
 // API post request
 function postJSON(data) {
     let finalapiPOSTUrl = apiPOSTUrl;
-    $.post({
+    $.ajax({
         url: finalapiPOSTUrl,
         type: 'post',
         dataType: 'json',
-        data: data
+        data: data,
+        statusCode: {
+            401: function (response) {
+                alert("Falsches Passwort");
+            },
+            200: function (response){
+                alert("Daten gespeichert");
+            }
+        }
     }).done(function responseHandler(data) {
         console.debug("POST, " + date + sucessAPI);
 
     }).fail(function errorHandler(jqXHR, textStatus, errorThrown) {
         console.error(errorAPIOffline)
         console.debug(jqXHR)
-        console.debug(textStatus)
-        console.debug(errorThrown)
-        alert(errorAPIOffline);
+        console.debug("textStatus: " + textStatus)
+        console.debug("errorThrown: " + errorThrown)
+        //alert(errorAPIOffline);
     })
 };
