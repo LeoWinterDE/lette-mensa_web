@@ -79,7 +79,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div id="loading_status"></div>
                         <h1 class="mensa-heading"><i class="fa fa-cutlery"></i> Mensa Plan <br> Lette-Verein</h1>
                         <p class="top-text">Der digitale Speiseplan für die Schüler und Mitarbeiter des Lette-Vereins.<br class="visible-lg">Frisch und direkt von unserem Ernährungs und Versorgungs-Team im Haus zubereitet.</p>
                         <a href="#mensa0" class="btn btn-circle page-scroll">
@@ -97,42 +96,46 @@
                 <div class="col-md-12 col-centered">
                     <nav aria-label="Select Day" class="visible-sm visible-md visible-lg">
                         <ul id="daymenu" class="pagination pagination-lg">
-                            <li class="active"><a href="#" aria-label="Today"><span id="d0" aria-hidden="true">Heute</span></a></li>
-                            <li><a href="#" aria-label="Tomorrow"><span id="d1" aria-hidden="true">Morgen</span></a></li>
-                            <li><a href="#" aria-label="Day after tomorrow"><span id="d2" aria-hidden="true">Übermorgen</span></a></li>
-                            <li><a href="#" aria-label="The next Day..."><span id="d3" aria-hidden="true">...</span></a></li>
-                            <li><a href="#" aria-label="The next Day..."><span id="d4" aria-hidden="true">...</span></a></li>
+                            <li class="active"><a href="#" aria-label="Today"><span id="d0" aria-hidden="true">Daten werden geladen <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></span></a></li>
+                            <li><a href="#" aria-label="Tomorrow"><span id="d1" aria-hidden="true">.</span></a></li>
+                            <li><a href="#" aria-label="Day after tomorrow"><span id="d2" aria-hidden="true">.</span></a></li>
+                            <li><a href="#" aria-label="The next Day..."><span id="d3" aria-hidden="true">.</span></a></li>
+                            <li><a href="#" aria-label="The next Day..."><span id="d4" aria-hidden="true">.</span></a></li>
                         </ul>
                     </nav>
                     <nav aria-label="Select Day" class="visible-xs">
                         <ul id="daymenu" class="pagination pagination-lg">
-                            <button id="d0-tiny" type="button" class="btn btn-default">...</button>
-                            <button id="d1-tiny" type="button" class="btn btn-default">...</button>
-                            <button id="d2-tiny" type="button" class="btn btn-default">...</button>
-                            <button id="d3-tiny" type="button" class="btn btn-default">...</button>
-                            <button id="d4-tiny" type="button" class="btn btn-default">...</button>
+                            <button id="d0-tiny" type="button" class="btn btn-default">Daten werden geladen</button>
+                            <button id="d1-tiny" type="button" class="btn btn-default">.</button>
+                            <button id="d2-tiny" type="button" class="btn btn-default">.</button>
+                            <button id="d3-tiny" type="button" class="btn btn-default">.</button>
+                            <button id="d4-tiny" type="button" class="btn btn-default">.</button>
                         </ul>
                     </nav>
                 </div>
             </div>
             <!-- mensa0 (Normal) Section -->
             <div id="mensa0" class="row top-buffer">
+                <!--<div class="loading-indicator" style="display:none"><i class="fa fa-refresh fa-spin"></i></div>-->
                 <h2 class="text-center">Normale Küche</h2>
                 <div id="vorspeise" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-15">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 id="type">Vorspeise</h4>
-                            <div class="panel-body text-center">
+                            <div class="panel-body">
                                 <h3 class="panel-center"><span id="name"></span></h3>
                                 <p><span id="beschreibung"></span></p>
                                 <p class="bg-warning"><span id="beachte"></span></p>
                                 <h4><span id="preis"></span> €</h4>
                             </div>
-                            <div id="extra-info" class="panel-footer">
-                                <p>Kcal: <span id="kcal"></span>g</p>
-                                <p>Fette: <span id="fette"></span>g</p>
-                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
-                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                            <div class="panel-footer">
+                                <a data-toggle="collapse" href="#info-0_1">
+                                    <h3 class="panel-title">Nährwert<i class="pull-right fa fa-chevron-down"></i></h3>
+                                </a>
+                            </div>
+                            <div id="info-0_1" class="collapse">
+                                <p>kcal: <span id="kcal"></span> | Fette: <span id="fette"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span>g | Eiweiß: <span id="eiweisse"></span>g</p>
                                 <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
                             </div>
                         </div>
@@ -142,17 +145,20 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 id="type">Vegetarisch</h4>
-                            <div class="panel-body text-center">
+                            <div class="panel-body">
                                 <h3 class="panel-center"><span id="name"></span></h3>
                                 <p><span id="beschreibung"></span></p>
                                 <p class="bg-warning"><span id="beachte"></span></p>
                                 <h4><span id="preis"></span> €</h4>
                             </div>
-                            <div id="extra-info" class="panel-footer">
-                                <p>Kcal: <span id="kcal"></span>g</p>
-                                <p>Fette: <span id="fette"></span>g</p>
-                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
-                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                            <div class="panel-footer">
+                                <a data-toggle="collapse" href="#info-0_2">
+                                    <h3 class="panel-title">Nährwert<i class="pull-right fa fa-chevron-down"></i></h3>
+                                </a>
+                            </div>
+                            <div id="info-0_2" class="collapse">
+                                <p>kcal: <span id="kcal"></span> | Fette: <span id="fette"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span>g | Eiweiß: <span id="eiweisse"></span>g</p>
                                 <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
                             </div>
                         </div>
@@ -162,17 +168,20 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 id="type">Vollkost</h4>
-                            <div class="panel-body text-center">
+                            <div class="panel-body">
                                 <h3 class="panel-center"><span id="name"></span></h3>
                                 <p><span id="beschreibung"></span></p>
                                 <p class="bg-warning"><span id="beachte"></span></p>
                                 <h4><span id="preis"></span> €</h4>
                             </div>
-                            <div id="extra-info" class="panel-footer">
-                                <p>Kcal: <span id="kcal"></span>g</p>
-                                <p>Fette: <span id="fette"></span>g</p>
-                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
-                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                            <div class="panel-footer">
+                                <a data-toggle="collapse" href="#info-0_3">
+                                    <h3 class="panel-title">Nährwert<i class="pull-right fa fa-chevron-down"></i></h3>
+                                </a>
+                            </div>
+                            <div id="info-0_3" class="collapse">
+                                <p>kcal: <span id="kcal"></span> | Fette: <span id="fette"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span>g | Eiweiß: <span id="eiweisse"></span>g</p>
                                 <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
                             </div>
                         </div>
@@ -188,11 +197,14 @@
                                 <p class="bg-warning"><span id="beachte"></span></p>
                                 <h4><span id="preis"></span> €</h4>
                             </div>
-                            <div id="extra-info" class="panel-footer">
-                                <p>Kcal: <span id="kcal"></span>g</p>
-                                <p>Fette: <span id="fette"></span>g</p>
-                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
-                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                            <div class="panel-footer">
+                                <a data-toggle="collapse" href="#info-0_4">
+                                    <h3 class="panel-title">Nährwert<i class="pull-right fa fa-chevron-down"></i></h3>
+                                </a>
+                            </div>
+                            <div id="info-0_4" class="collapse">
+                                <p>kcal: <span id="kcal"></span> | Fette: <span id="fette"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span>g | Eiweiß: <span id="eiweisse"></span>g</p>
                                 <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
                             </div>
                         </div>
@@ -208,11 +220,14 @@
                                 <p class="bg-warning"><span id="beachte"></span></p>
                                 <h4><span id="preis"></span> €</h4>
                             </div>
-                            <div id="extra-info" class="panel-footer">
-                                <p>Kcal: <span id="kcal"></span>g</p>
-                                <p>Fette: <span id="fette"></span>g</p>
-                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
-                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                            <div class="panel-footer">
+                                <a data-toggle="collapse" href="#info-0_5">
+                                    <h3 class="panel-title">Nährwert<i class="pull-right fa fa-chevron-down"></i></h3>
+                                </a>
+                            </div>
+                            <div id="info-0_5" class="collapse">
+                                <p>kcal: <span id="kcal"></span> | Fette: <span id="fette"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span>g | Eiweiß: <span id="eiweisse"></span>g</p>
                                 <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
                             </div>
                         </div>
@@ -234,11 +249,14 @@
                                 <p class="bg-warning"><span id="beachte"></span></p>
                                 <h4><span id="preis"></span> €</h4>
                             </div>
-                            <div id="extra-info" class="panel-footer">
-                                <p>Kcal: <span id="kcal"></span>g</p>
-                                <p>Fette: <span id="fette"></span>g</p>
-                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
-                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                            <div class="panel-footer">
+                                <a data-toggle="collapse" href="#info-1_1">
+                                    <h3 class="panel-title">Nährwert<i class="pull-right fa fa-chevron-down"></i></h3>
+                                </a>
+                            </div>
+                            <div id="info-1_1" class="collapse">
+                                <p>kcal: <span id="kcal"></span> | Fette: <span id="fette"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span>g | Eiweiß: <span id="eiweisse"></span>g</p>
                                 <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
                             </div>
                         </div>
@@ -254,11 +272,14 @@
                                 <p class="bg-warning"><span id="beachte"></span></p>
                                 <h4><span id="preis"></span> €</h4>
                             </div>
-                            <div id="extra-info" class="panel-footer">
-                                <p>Kcal: <span id="kcal"></span>g</p>
-                                <p>Fette: <span id="fette"></span>g</p>
-                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
-                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                            <div class="panel-footer">
+                                <a data-toggle="collapse" href="#info-1_2">
+                                    <h3 class="panel-title">Nährwert<i class="pull-right fa fa-chevron-down"></i></h3>
+                                </a>
+                            </div>
+                            <div id="info-1_2" class="collapse">
+                                <p>kcal: <span id="kcal"></span> | Fette: <span id="fette"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span>g | Eiweiß: <span id="eiweisse"></span>g</p>
                                 <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
                             </div>
                         </div>
@@ -274,11 +295,14 @@
                                 <p class="bg-warning"><span id="beachte"></span></p>
                                 <h4><span id="preis"></span> €</h4>
                             </div>
-                            <div id="extra-info" class="panel-footer">
-                                <p>Kcal: <span id="kcal"></span>g</p>
-                                <p>Fette: <span id="fette"></span>g</p>
-                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
-                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                            <div class="panel-footer">
+                                <a data-toggle="collapse" href="#info-1_3">
+                                    <h3 class="panel-title">Nährwert<i class="pull-right fa fa-chevron-down"></i></h3>
+                                </a>
+                            </div>
+                            <div id="info-1_3" class="collapse">
+                                <p>kcal: <span id="kcal"></span> | Fette: <span id="fette"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span>g | Eiweiß: <span id="eiweisse"></span>g</p>
                                 <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
                             </div>
                         </div>
@@ -294,11 +318,14 @@
                                 <p class="bg-warning"><span id="beachte"></span></p>
                                 <h4><span id="preis"></span> €</h4>
                             </div>
-                            <div id="extra-info" class="panel-footer">
-                                <p>Kcal: <span id="kcal"></span>g</p>
-                                <p>Fette: <span id="fette"></span>g</p>
-                                <p>Eiweiß: <span id="eiweisse"></span>g</p>
-                                <p>Kolenhydrate: <span id="kolenhydrate"></span></p>
+                            <div class="panel-footer">
+                                <a data-toggle="collapse" href="#info-1_4">
+                                    <h3 class="panel-title">Nährwert<i class="pull-right fa fa-chevron-down"></i></h3>
+                                </a>
+                            </div>
+                            <div id="info-1_4" class="collapse">
+                                <p>kcal: <span id="kcal"></span> | Fette: <span id="fette"></span>g</p>
+                                <p>Kolenhydrate: <span id="kolenhydrate"></span>g | Eiweiß: <span id="eiweisse"></span>g</p>
                                 <p>Zusatzstoffe, Allergene: <span id="zusatzstoffe"></span></p>
                             </div>
                         </div>

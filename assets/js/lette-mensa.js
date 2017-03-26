@@ -60,7 +60,16 @@ $('.navbar-collapse ul li a').click(function () {
     }
 })
 
-// # Date funct.
+// loading spinner js
+$(document).ajaxStart(function(event, request, settings) {
+  $('#loading-indicator').show();
+});
+
+$(document).ajaxComplete(function(event, request, settings) {
+  $('#loading-indicator').hide();
+});
+
+// date funct.
 function getdateToday() {
     return moment().locale(momentLang).format("YYYY-MM-DD");
 }
@@ -80,7 +89,7 @@ function getPreviousWorkday() {
     }
 };
 
-// Error handeling
+// error and reload handeling
 function reloadPage() {
     setTimeout(function () {
         window.location.reload(); /* or window.location = window.location.href; */
@@ -98,9 +107,8 @@ function loadJSON(date) {
         dataType: 'json',
     }).done(function responseHandler(data) {
         console.debug("GET, " + date + sucessAPI);
-        let lStorageName = "mensa-day_" + date;
-        localStorage.setItem(lStorageName, JSON.stringify(data));
-        AssignmentByDate(date);
+        let sessionStorageName = "mensa-day_" + date;
+        sessionStorage.setItem(sessionStorageName, JSON.stringify(data));
     }).fail(function errorHandler(jqXHR, textStatus, errorThrown) {
         console.error(errorAPIOffline)
         console.error(jqXHR)
@@ -121,7 +129,7 @@ function postJSON(data) {
             401: function (response) {
                 alert("Falsches Passwort");
             },
-            200: function (response){
+            200: function (response) {
                 alert("Daten gespeichert");
             }
         }

@@ -77,24 +77,74 @@ $(function () {
         $('#mensa0').css('display', '');
         $('#next').css('display', '');
     });
+    // $('.select-name').selectize({
+    //     allowEmptyOption: false,
+    //     maxItems: 1,
+    //     create: true,
+    //     createOnBlur: true,
+    //     persist: false,
+    //     valueField: 'title',
+    //     labelField: 'title',
+    //     searchField: 'title',
+    //     sortField: {
+    //         field: 'title',
+    //         direction: 'asc'
+    //     },
+    //     options: [
+    //         { title: "Tomatensalat" },
+    //         { title: "Hähnchenkeule" },
+    //         { title: "Erbsen, Paprikagemüse" },
+    //         { title: "Erdbeeren" }],
+    // });
+    // $('.select-name').selectize({
+    //     allowEmptyOption: false,
+    //     maxItems: 1,
+    //     create: true,
+    //     createOnBlur: true,
+    //     persist: false,
+    //     valueField: 'title',
+    //     labelField: 'title',
+    //     searchField: 'title',
+    //     sortField: {
+    //         field: 'title',
+    //         direction: 'asc'
+    //     },
+    //     options: [
+    //         { title: "Tomatensalat" },
+    //         { title: "Hähnchenkeule" },
+    //         { title: "Erbsen, Paprikagemüse" },
+    //         { title: "Erdbeeren" }],
+    // });
     $('.select-name').selectize({
-        allowEmptyOption: false,
-        maxItems: 1,
+        valueField: 'item',
+        labelField: 'item',
+        searchField: 'item',
         create: true,
-        createOnBlur: true,
-        persist: false,
-        valueField: 'title',
-        labelField: 'title',
-        searchField: 'title',
-        sortField: {
-            field: 'title',
-            direction: 'asc'
-        },
-        options: [
-            { title: "Tomatensalat" },
-            { title: "Hähnchenkeule" },
-            { title: "Erbsen, Paprikagemüse" },
-            { title: "Erdbeeren" }],
+        // render: {
+        //     option: function (item, escape) {
+        //         return escape(item);
+        //     }
+        // },
+        // onChange: function (query) {
+        //     console.log(query)
+        //     console.log(query.length)
+        //     if (!query.length) return callback();
+        //     $.ajax({
+        //         url: apiGETUrl + 'LastWeeks/100',
+        //         type: 'GET',
+        //         dataType: 'json',
+        //         // data: {
+        //         //     name: query,
+        //         //     additionalDataIfRequired: 'Additional Data'
+        //         // },
+        //         error: function () {
+        //             callback();
+        //         },
+        //         success: function (res) {
+        //             callback(res);
+        //         }
+        //     });
+        // }
     });
     $('.select-zusatzstoffe').selectize({
         delimiter: ', ',
