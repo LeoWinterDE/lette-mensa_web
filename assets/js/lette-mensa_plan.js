@@ -66,7 +66,7 @@ function setButtonsAndMeal(date) {
         setMeal(date);
     }
     setButtons(date, progs);
-    // preLoadData(date, progs);
+    preLoadData(date, progs);
 
     // set date on buttons, for changing the day by onclick.
     function setButtons(date, progs) {
