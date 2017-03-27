@@ -31,6 +31,7 @@ function setButtonsAndMeal(date) {
         d4 = getDatePlus(date, +4, "DD.MM"), d4name = getDayName(getDatePlus(date, +4, "YYYY-MM-DD")), d4nameshort = moment(getDatePlus(date, +4, "YYYY-MM-DD")).locale(momentLang).format("dd"),
         d5 = getDatePlus(date, +5, "DD.MM"), d5name = getDayName(getDatePlus(date, +5, "YYYY-MM-DD")), d5nameshort = moment(getDatePlus(date, +5, "YYYY-MM-DD")).locale(momentLang).format("dd"),
         d6 = getDatePlus(date, +6, "DD.MM"), d6name = getDayName(getDatePlus(date, +6, "YYYY-MM-DD")), d6nameshort = moment(getDatePlus(date, +6, "YYYY-MM-DD")).locale(momentLang).format("dd"),
+        d7 = getDatePlus(date, +7, "DD.MM"), d7name = getDayName(getDatePlus(date, +7, "YYYY-MM-DD")), d7nameshort = moment(getDatePlus(date, +7, "YYYY-MM-DD")).locale(momentLang).format("dd"),
         speiseElemente = ["name", "beschreibung", "beachte", "preis", "kcal", "fette", "eiweisse", "kolenhydrate", "zusatzstoffe"], progs;
 
     if (getDayName(date) == "Samstag") {
@@ -44,6 +45,11 @@ function setButtonsAndMeal(date) {
         let dnow = getDatePlus(date, +1, "YYYY-MM-DD");
         loadJSON(dnow);
         setMeal(dnow);
+    }
+    else if (getDayName(date) == "Montag") {
+        progs = ["0", "1", "2", "3", "4"];
+        loadJSON(date);
+        setMeal(date);
     }
     else if (getDayName(date) == "Mittwoch") {
         progs = ["0", "1", "2", "5", "6"];
@@ -60,8 +66,8 @@ function setButtonsAndMeal(date) {
         loadJSON(date);
         setMeal(date);
     }
-    else { // catch Mo and Th.
-        progs = ["0", "1", "2", "3", "7"];
+    else { // catch Mo
+        progs = ["0", "1", "2", "3", "4"];
         loadJSON(date);
         setMeal(date);
     }
@@ -70,7 +76,8 @@ function setButtonsAndMeal(date) {
 
     // set date on buttons, for changing the day by onclick.
     function setButtons(date, progs) {
-        for (i = 0; i < buttons.length; i++) {
+        for (let i = 0; i < buttons.length; i++) {
+            // console.debug(buttons.length);
             // console.debug(i);
             // console.debug([progs[i]].toString());
             let btnPlus = "+" + [progs[i]].toString();
