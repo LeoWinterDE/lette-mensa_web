@@ -5,7 +5,7 @@
 
 // Datepicker & Buttons
 // -- bootstrap-datepicker.de.min.js - https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.de.min.js
-!function (a) {
+! function(a) {
     a.fn.datepicker.dates.de = {
         days: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
         daysShort: ["Son", "Mon", "Die", "Mit", "Don", "Fre", "Sam"],
@@ -22,7 +22,7 @@
 // --
 
 //# init
-$(function () {
+$(function() {
     $('#datepicker').datepicker({
         format: "yyyy-mm-dd",
         maxViewMode: 3,
@@ -33,7 +33,7 @@ $(function () {
         calendarWeeks: true,
         todayHighlight: true
     });
-    $('#datepicker').datepicker().on("changeDate", function () {
+    $('#datepicker').datepicker().on("changeDate", function() {
         dateToday = $('#datepicker').datepicker('getFormattedDate');
         console.log("Date selected: " + dateToday)
         $('#mensa0').css('display', '');
@@ -41,17 +41,17 @@ $(function () {
         $('#datepicker').css('display', 'none');
         $("#date-display").text($('#datepicker').datepicker('getFormattedDate'));
     });
-    $('#SubmitAndSave').click(function () {
+    $('#SubmitAndSave').click(function() {
         BootstrapDialog.show({
             message: 'Möchten Sie die Daten wirklich speichern? \n\n Passwort zum speichern: <input type="text" id="auth-pw" class="form-control">',
-            onhide: function (dialogRef) {
+            onhide: function(dialogRef) {
                 var input = dialogRef.getModalBody().find('input').val();
             },
             buttons: [{
                 label: 'Speichern',
                 title: 'Speichern',
                 cssClass: 'btn-danger',
-                action: function (dialogItself) {
+                action: function(dialogItself) {
                     postRoutine();
                     $('#mensa1').css('display', 'none');
                     $('#datepicker').css('display', '');
@@ -60,106 +60,59 @@ $(function () {
             }, {
                 label: 'Abbrechen',
                 cssClass: 'btn-info',
-                action: function (dialogItself) {
+                action: function(dialogItself) {
                     dialogItself.close();
                 }
             }]
         });
     });
-    $('button#next').click(function () {
+    $('button#next').click(function() {
         $('#mensa0').css('display', 'none');
         $('#next').css('display', 'none');
         $('#mensa1').css('display', '');
         $('#finish').css('display', '');
     });
-    $('button#back').click(function () {
+    $('button#back').click(function() {
         $('#mensa1').css('display', 'none');
         $('#mensa0').css('display', '');
         $('#next').css('display', '');
     });
-    // $('.select-name').selectize({
-    //     allowEmptyOption: false,
-    //     maxItems: 1,
-    //     create: true,
-    //     createOnBlur: true,
-    //     persist: false,
-    //     valueField: 'title',
-    //     labelField: 'title',
-    //     searchField: 'title',
-    //     sortField: {
-    //         field: 'title',
-    //         direction: 'asc'
-    //     },
-    //     options: [
-    //         { title: "Tomatensalat" },
-    //         { title: "Hähnchenkeule" },
-    //         { title: "Erbsen, Paprikagemüse" },
-    //         { title: "Erdbeeren" }],
-    // });
-    // $('.select-name').selectize({
-    //     allowEmptyOption: false,
-    //     maxItems: 1,
-    //     create: true,
-    //     createOnBlur: true,
-    //     persist: false,
-    //     valueField: 'title',
-    //     labelField: 'title',
-    //     searchField: 'title',
-    //     sortField: {
-    //         field: 'title',
-    //         direction: 'asc'
-    //     },
-    //     options: [
-    //         { title: "Tomatensalat" },
-    //         { title: "Hähnchenkeule" },
-    //         { title: "Erbsen, Paprikagemüse" },
-    //         { title: "Erdbeeren" }],
-    // });
+
     $('.select-name').selectize({
-        valueField: 'item',
-        labelField: 'item',
-        searchField: 'item',
+        valueField: ['prefix'],
+        labelField: ['prefix'],
+        searchField: ['prefix'],
+        // options: [],
         create: true,
-        // render: {
-        //     option: function (item, escape) {
-        //         return escape(item);
-        //     }
-        // },
-        // onChange: function (query) {
-        //     console.log(query)
-        //     console.log(query.length)
-        //     if (!query.length) return callback();
-        //     $.ajax({
-        //         url: apiGETUrl + 'LastWeeks/100',
-        //         type: 'GET',
-        //         dataType: 'json',
-        //         // data: {
-        //         //     name: query,
-        //         //     additionalDataIfRequired: 'Additional Data'
-        //         // },
-        //         error: function () {
-        //             callback();
-        //         },
-        //         success: function (res) {
-        //             callback(res);
-        //         }
-        //     });
-        // }
+        load: function(query, callback) {
+            if (!query.length) return callback();
+            console.log(query);
+            $.ajax({
+                url: apiGETUrl + 'byQuery/',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    // name: query,
+                    ['prefix']: query,
+                    type: "Vorspeise"
+                },
+                error: function() {
+                    callback();
+                },
+                success: function(res) {
+                    callback(res);
+                }
+            });
+        }
     });
     $('.select-zusatzstoffe').selectize({
-        delimiter: ', ',
-        create: true,
+        plugins: ['restore_on_backspace'],
         persist: false,
-        valueField: 'name',
-        labelField: 'name',
-        searchField: 'name',
-        options: [
-            { name: "Salz" },
-            { name: "Süßstoff" },
-            { name: "Jodsalz" }],
+        create: true
     });
 });
-$(document).ready(function () {
+
+$(document).ready(function() {
     console.log("Date Today: " + moment().locale(momentLang).format("YYYY-MM-DD") + " (" + moment().locale(momentLang).format("dddd") + ") - And we use: " + getPreviousWorkday());
     $("#date-display").text("Tag bitte wählen... - " + getPreviousWorkday());
 });
@@ -173,7 +126,7 @@ function postRoutine() {
         postJSON(dataReadyForPost);
     } catch (error) {
         console.log("Error: " + error)
-        //alert(errorAPIOffline)
+            //alert(errorAPIOffline)
     }
     return successPost
 }
@@ -181,7 +134,7 @@ function postRoutine() {
 //# error handeling
 function reloadPage() {
     setTimeout(
-        function () {
+        function() {
             window.location.reload();
             /* or window.location = window.location.href; */
             console.log(errorReload);
@@ -192,7 +145,10 @@ function reloadPage() {
 
 //# prep daten for the post
 function prepDataforPost() {
-    var dataObj = {}, date = $("#date-display").text(), auth_pw = $("input#auth-pw").val(), mensaID = ["Mensa0", "Mensa1"];
+    var dataObj = {},
+        date = $("#date-display").text(),
+        auth_pw = $("input#auth-pw").val(),
+        mensaID = ["Mensa0", "Mensa1"];
     if (date.length != 10) {
         // date = getPreviousWorkday();
         console.log(errorNoDay);
@@ -231,9 +187,11 @@ function prepDataforPost() {
 
     function prepDataforMensa(mensa, date) {
         if (mensa == mensaID[0]) {
-            var speiseTypen = ["Vorspeise", "Vegetarisch", "Vollkost", "Beilagen", "Dessert"], speiseElemente = ["name", "beschreibung", "beachte", "preis", "kcal", "fette", "eiweisse", "kolenhydrate", "zusatzstoffe"];
+            var speiseTypen = ["Vorspeise", "Vegetarisch", "Vollkost", "Beilagen", "Dessert"],
+                speiseElemente = ["name", "beschreibung", "beachte", "preis", "kcal", "fette", "eiweisse", "kolenhydrate", "zusatzstoffe"];
         } else if (mensa == mensaID[1]) {
-            var speiseTypen = ["Vorspeise", "Leichte-Vollkost", "Gemüseteller", "Dessert"], speiseElemente = ["name", "beschreibung", "beachte", "preis", "kcal", "fette", "eiweisse", "kolenhydrate", "zusatzstoffe"];
+            var speiseTypen = ["Vorspeise", "Leichte-Vollkost", "Gemüseteller", "Dessert"],
+                speiseElemente = ["name", "beschreibung", "beachte", "preis", "kcal", "fette", "eiweisse", "kolenhydrate", "zusatzstoffe"];
         } else {
             console.log("Error! No mensa selected.")
             return error

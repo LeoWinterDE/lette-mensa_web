@@ -48,27 +48,40 @@
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"><i class="fa fa-bars"></i></button>
-            <a class="navbar-brand page-scroll" href="#page-top">
+            <a class="navbar-brand page-scroll visible-sm visible-md visible-lg" href="#page-top">
                 <span class="light">Lette-Verein </span>
+                <i class="fa fa-cutlery"></i>
+                <span class="light">Mensa </span> Plan
+            </a>
+            <a class="navbar-brand page-scroll visible-xs" href="#page-top">
+                <span class="light">Lette </span>
                 <i class="fa fa-cutlery"></i>
                 <span class="light">Mensa </span> Plan
             </a>
         </div>
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="#page-top"><i class="fa fa-cutlery"></i> Mensa Plan</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#mensa0">Küche</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#mensa1">Diätküche</a>
-                </li>
+            <ul class="nav navbar-nav visible-sm visible-md visible-lg">
+                <li><a href="#page-top"><i class="fa fa-cutlery"></i> Mensa Plan</a></li>
+                <li><a class="page-scroll" href="#mensa0">Küche</a></li>
+                <li><a class="page-scroll" href="#mensa1">Diätküche</a></li>
                 <!--
+                <li><a class="page-scroll" href="#app"><i class="fa fa-android"></i> Android App</a></li>
+                -->
+            </ul>
+            <ul class="nav navbar-nav visible-xs">
+                <!--<li><a href="#page-top"><i class="fa fa-cutlery"></i> Mensa Plan</a></li>-->
+                <li><a class="page-scroll" href="#mensa0">Küche</a></li>
+                <li><a class="page-scroll" href="#mensa1">Diätküche</a></li>
                 <li>
-                    <a class="page-scroll" href="#app"><i class="fa fa-android"></i> Android App</a>
+                    <hr>
                 </li>
+                <!--<li><a class="page-scroll" id="d0" href="#">Daten werden geladen... <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></a></li>
+                <li><a id="d1" href="#">Daten werden geladen... <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></a></li>
+                <li><a id="d2" href="#">Daten werden geladen... <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></a></li>
+                <li><a id="d3" href="#">Daten werden geladen... <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></a></li>
+                <li><a id="d4" href="#">Daten werden geladen... <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></a></li>-->
+                <!--
+                <li><a class="page-scroll" href="#app"><i class="fa fa-android"></i> Android App</a></li>
                 -->
             </ul>
         </div>
@@ -80,8 +93,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="mensa-heading"><i class="fa fa-cutlery"></i> Mensa Plan <br> Lette-Verein</h1>
-                        <p class="top-text">Der digitale Speiseplan für die Schüler und Mitarbeiter des Lette-Vereins.<br class="visible-lg">Frisch und direkt von unserem Ernährungs und Versorgungs-Team im Haus zubereitet.</p>
-                        <a href="#mensa0" class="btn btn-circle page-scroll">
+                        <p class="top-text">Der digitale Speiseplan für die Schüler und Mitarbeiter des Lette-Vereins.<br class="visible-lg">Frisch
+                            und direkt von unserem Ernährungs und Versorgungs-Team im Haus zubereitet.</p>
+                        <a href="#mensa0" class="btn btn-circle page-scroll" style="background-color: transparent">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>
@@ -96,20 +110,20 @@
                 <div class="col-md-12 col-centered">
                     <nav aria-label="Select Day" class="visible-sm visible-md visible-lg">
                         <ul id="daymenu" class="pagination pagination-lg">
-                            <li class="active"><a href="#" aria-label="Today"><span id="d0" aria-hidden="true">Daten werden geladen <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></span></a></li>
-                            <li><a href="#" aria-label="Tomorrow"><span id="d1" aria-hidden="true"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></span></a></li>
-                            <li><a href="#" aria-label="Day after tomorrow"><span id="d2" aria-hidden="true"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></span></a></li>
-                            <li><a href="#" aria-label="The next Day..."><span id="d3" aria-hidden="true"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></span></a></li>
-                            <li><a href="#" aria-label="The next Day..."><span id="d4" aria-hidden="true"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></span></a></li>
+                            <li class="active"><a href="#" id="d0" aria-label="Today">Daten werden geladen <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></a></li>
+                            <li><a href="#" id="d1" aria-label="Tomorrow"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></a></li>
+                            <li><a href="#" id="d2" aria-label="Day after tomorrow"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></a></li>
+                            <li><a href="#" id="d3" aria-label="The next Day..."><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></a></li>
+                            <li><a href="#" id="d4" aria-label="The next Day..."><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></a></li>
                         </ul>
                     </nav>
                     <nav aria-label="Select Day" class="visible-xs">
                         <ul id="daymenu" class="pagination pagination-lg">
-                            <button id="d0-tiny" type="button" class="btn btn-default">Daten werden geladen <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button>
-                            <button id="d1-tiny" type="button" class="btn btn-default"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button>
-                            <button id="d2-tiny" type="button" class="btn btn-default"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button>
-                            <button id="d3-tiny" type="button" class="btn btn-default"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button>
-                            <button id="d4-tiny" type="button" class="btn btn-default"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button>
+                            <button id="d0-tiny" type="button" class="btn btn-circle">Daten werden geladen <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button>
+                            <button id="d1-tiny" type="button" class="btn btn-circle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button>
+                            <button id="d2-tiny" type="button" class="btn btn-circle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button>
+                            <button id="d3-tiny" type="button" class="btn btn-circle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button>
+                            <button id="d4-tiny" type="button" class="btn btn-circle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button>
                         </ul>
                     </nav>
                 </div>
@@ -117,7 +131,7 @@
             <!-- mensa0 (Normal) Section -->
             <div id="mensa0" class="row top-buffer">
                 <!--<div class="loading-indicator" style="display:none"><i class="fa fa-refresh fa-spin"></i></div>-->
-                <h2 class="text-center">Normale Küche</h2>
+                <h2 class="mensa0-title">Normale Küche</h2>
                 <div id="vorspeise" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-15">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -238,7 +252,7 @@
         <!-- mensa1 (Diätküche) Section -->
         <div id="mensa1" class="container-fluid">
             <div class="row">
-                <h2 class="text-center">Diätküche</h2>
+                <h2 class="mensa1-title">Diätküche</h2>
                 <div id="vorspeise" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                     <div class="panel panel-default">
                         <div class="panel-heading">

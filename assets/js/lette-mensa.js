@@ -7,7 +7,7 @@ const apiGETUrl = "https://dev.l100n.cc/API/get/",
 
 // TEST CONFIG PART
 let dateToday = getdateToday();
-// let dateToday = "2017-01-09";
+// let dateToday = "2017-03-27";
 // TEST CONFIG PART
 
 const error = "Fehler!",
@@ -61,24 +61,27 @@ $('.navbar-collapse ul li a').click(function () {
 })
 
 // loading spinner js
-$(document).ajaxStart(function(event, request, settings) {
-  $('#loading-indicator').show();
+$(document).ajaxStart(function (event, request, settings) {
+    $('#loading-indicator').show();
 });
 
-$(document).ajaxComplete(function(event, request, settings) {
-  $('#loading-indicator').hide();
+$(document).ajaxComplete(function (event, request, settings) {
+    $('#loading-indicator').hide();
 });
 
 // date funct.
 function getdateToday() {
     return moment().locale(momentLang).format("YYYY-MM-DD");
 }
+
 function getDayName(datStr) {
     return moment(datStr).locale(momentLang).format("dddd");
 }
+
 function getDatePlus(datStr, plus, format) {
     return moment(datStr).add(plus, 'days').locale(momentLang).format(format);
 };
+
 function getPreviousWorkday() {
     switch (moment().locale(momentLang).day()) {
         case 0:
