@@ -23,8 +23,7 @@ $(document).ready(function init() {
 })
 
 function setButtonsAndMeal(date) {
-    const buttons = ["d0", "d1", "d2", "d3", "d4"],
-        mensaID = ["Mensa0", "Mensa1"];
+    const buttons = ["d0", "d1", "d2", "d3", "d4"];
     let d0 = getDatePlus(date, +0, "DD.MM"),
         d0name = getDayName(date),
         d0nameshort = moment(date).locale(momentLang).format("dd"),
@@ -49,7 +48,6 @@ function setButtonsAndMeal(date) {
         d7 = getDatePlus(date, +7, "DD.MM"),
         d7name = getDayName(getDatePlus(date, +7, "YYYY-MM-DD")),
         d7nameshort = moment(getDatePlus(date, +7, "YYYY-MM-DD")).locale(momentLang).format("dd"),
-        speiseElemente = ["name", "beschreibung", "beachte", "preis", "kcal", "fette", "eiweisse", "kolenhydrate", "zusatzstoffe"],
         progs;
 
     if (getDayName(date) == "Samstag") {
@@ -156,9 +154,9 @@ function setButtonsAndMeal(date) {
 
         function setMeal(mensa, date, data) {
             if (mensa == mensaID[0]) {
-                var speiseTypen = ["Vorspeise", "Vegetarisch", "Vollkost", "Beilagen", "Dessert"];
+                let speiseTypen = speiseTypenMensa0;
             } else if (mensa == mensaID[1]) {
-                var speiseTypen = ["Vorspeise", "Leichte-Vollkost", "Gemüseteller", "Dessert"];
+                let speiseTypen = speiseTypenMensa1;
             } else {
                 console.error("Error! No mensa selected.")
                 reloadPage();

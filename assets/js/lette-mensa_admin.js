@@ -5,7 +5,7 @@
 
 // Datepicker & Buttons
 // -- bootstrap-datepicker.de.min.js - https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.de.min.js
-! function(a) {
+! function (a) {
     a.fn.datepicker.dates.de = {
         days: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
         daysShort: ["Son", "Mon", "Die", "Mit", "Don", "Fre", "Sam"],
@@ -22,7 +22,7 @@
 // --
 
 //# init
-$(function() {
+$(function () {
     $('#datepicker').datepicker({
         format: "yyyy-mm-dd",
         maxViewMode: 3,
@@ -33,7 +33,7 @@ $(function() {
         calendarWeeks: true,
         todayHighlight: true
     });
-    $('#datepicker').datepicker().on("changeDate", function() {
+    $('#datepicker').datepicker().on("changeDate", function () {
         dateToday = $('#datepicker').datepicker('getFormattedDate');
         console.log("Date selected: " + dateToday)
         $('#mensa0').css('display', '');
@@ -41,17 +41,17 @@ $(function() {
         $('#datepicker').css('display', 'none');
         $("#date-display").text($('#datepicker').datepicker('getFormattedDate'));
     });
-    $('#SubmitAndSave').click(function() {
+    $('#SubmitAndSave').click(function () {
         BootstrapDialog.show({
             message: 'Möchten Sie die Daten wirklich speichern? \n\n Passwort zum speichern: <input type="text" id="auth-pw" class="form-control">',
-            onhide: function(dialogRef) {
+            onhide: function (dialogRef) {
                 var input = dialogRef.getModalBody().find('input').val();
             },
             buttons: [{
                 label: 'Speichern',
                 title: 'Speichern',
                 cssClass: 'btn-danger',
-                action: function(dialogItself) {
+                action: function (dialogItself) {
                     postRoutine();
                     $('#mensa1').css('display', 'none');
                     $('#datepicker').css('display', '');
@@ -60,51 +60,201 @@ $(function() {
             }, {
                 label: 'Abbrechen',
                 cssClass: 'btn-info',
-                action: function(dialogItself) {
+                action: function (dialogItself) {
                     dialogItself.close();
                 }
             }]
         });
     });
-    $('button#next').click(function() {
+    $('button#next').click(function () {
         $('#mensa0').css('display', 'none');
         $('#next').css('display', 'none');
         $('#mensa1').css('display', '');
         $('#finish').css('display', '');
     });
-    $('button#back').click(function() {
+    $('button#back').click(function () {
         $('#mensa1').css('display', 'none');
         $('#mensa0').css('display', '');
         $('#next').css('display', '');
     });
 
-    $('.select-name').selectize({
-        valueField: ['prefix'],
-        labelField: ['prefix'],
-        searchField: ['prefix'],
-        // options: [],
+    $('.Vorspeise-name').selectize({
+        valueField: 'meal',
+        labelField: 'meal',
+        searchField: 'meal',
+        options: [],
         create: true,
-        load: function(query, callback) {
+        load: function (query, callback) {
             if (!query.length) return callback();
-            console.log(query);
             $.ajax({
                 url: apiGETUrl + 'byQuery/',
                 type: 'GET',
                 dataType: 'json',
                 data: {
-                    // name: query,
-                    ['prefix']: query,
+                    query: query,
                     type: "Vorspeise"
                 },
-                error: function() {
+                error: function () {
                     callback();
                 },
-                success: function(res) {
+                success: function (res) {
                     callback(res);
                 }
             });
         }
     });
+    $('.Vegetarisch-name').selectize({
+        valueField: 'meal',
+        labelField: 'meal',
+        searchField: 'meal',
+        options: [],
+        create: true,
+        load: function (query, callback) {
+            if (!query.length) return callback();
+            $.ajax({
+                url: apiGETUrl + 'byQuery/',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    query: query,
+                    type: "Vegetarisch"
+                },
+                error: function () {
+                    callback();
+                },
+                success: function (res) {
+                    callback(res);
+                }
+            });
+        }
+    });
+    $('.Vollkost-name').selectize({
+        valueField: 'meal',
+        labelField: 'meal',
+        searchField: 'meal',
+        options: [],
+        create: true,
+        load: function (query, callback) {
+            if (!query.length) return callback();
+            $.ajax({
+                url: apiGETUrl + 'byQuery/',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    query: query,
+                    type: "Vollkost"
+                },
+                error: function () {
+                    callback();
+                },
+                success: function (res) {
+                    callback(res);
+                }
+            });
+        }
+    });
+    $('.Beilagen-name').selectize({
+        valueField: 'meal',
+        labelField: 'meal',
+        searchField: 'meal',
+        options: [],
+        create: true,
+        load: function (query, callback) {
+            if (!query.length) return callback();
+            $.ajax({
+                url: apiGETUrl + 'byQuery/',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    query: query,
+                    type: "Beilagen"
+                },
+                error: function () {
+                    callback();
+                },
+                success: function (res) {
+                    callback(res);
+                }
+            });
+        }
+    });
+    $('.Dessert-name').selectize({
+        valueField: 'meal',
+        labelField: 'meal',
+        searchField: 'meal',
+        options: [],
+        create: true,
+        load: function (query, callback) {
+            if (!query.length) return callback();
+            $.ajax({
+                url: apiGETUrl + 'byQuery/',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    query: query,
+                    type: "Beilagen"
+                },
+                error: function () {
+                    callback();
+                },
+                success: function (res) {
+                    callback(res);
+                }
+            });
+        }
+    });
+    $('.Leichte-Vollkost-name').selectize({
+        valueField: 'meal',
+        labelField: 'meal',
+        searchField: 'meal',
+        options: [],
+        create: true,
+        load: function (query, callback) {
+            if (!query.length) return callback();
+            $.ajax({
+                url: apiGETUrl + 'byQuery/',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    query: query,
+                    type: "Leichte-Vollkost"
+                },
+                error: function () {
+                    callback();
+                },
+                success: function (res) {
+                    callback(res);
+                }
+            });
+        }
+    });
+    $('.Gemüseteller-name').selectize({
+        valueField: 'meal',
+        labelField: 'meal',
+        searchField: 'meal',
+        options: [],
+        create: true,
+        load: function (query, callback) {
+            if (!query.length) return callback();
+            $.ajax({
+                // url: apiGETUrl + 'byQuery/',
+                url: 'http://localhost:8080/lette-mensa_backend/getLatestByQuery',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    query: query,
+                    type: "Gemüseteller"
+                },
+                error: function () {
+                    callback();
+                },
+                success: function (res) {
+                    callback(res);
+                }
+            });
+        }
+    });
+
     $('.select-zusatzstoffe').selectize({
         plugins: ['restore_on_backspace'],
         persist: false,
@@ -112,7 +262,7 @@ $(function() {
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     console.log("Date Today: " + moment().locale(momentLang).format("YYYY-MM-DD") + " (" + moment().locale(momentLang).format("dddd") + ") - And we use: " + getPreviousWorkday());
     $("#date-display").text("Tag bitte wählen... - " + getPreviousWorkday());
 });
@@ -126,7 +276,7 @@ function postRoutine() {
         postJSON(dataReadyForPost);
     } catch (error) {
         console.log("Error: " + error)
-            //alert(errorAPIOffline)
+        //alert(errorAPIOffline)
     }
     return successPost
 }
@@ -134,7 +284,7 @@ function postRoutine() {
 //# error handeling
 function reloadPage() {
     setTimeout(
-        function() {
+        function () {
             window.location.reload();
             /* or window.location = window.location.href; */
             console.log(errorReload);
@@ -147,8 +297,7 @@ function reloadPage() {
 function prepDataforPost() {
     var dataObj = {},
         date = $("#date-display").text(),
-        auth_pw = $("input#auth-pw").val(),
-        mensaID = ["Mensa0", "Mensa1"];
+        auth_pw = $("input#auth-pw").val();
     if (date.length != 10) {
         // date = getPreviousWorkday();
         console.log(errorNoDay);

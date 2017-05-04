@@ -12,6 +12,8 @@ let dateToday = getdateToday();
 
 const error = "Fehler!",
     errorAPI = "Sorry, Fehler!",
+    searchMeal = "Suche nach",
+    meal = "Essen",
     errorAPIOffline = "Sorry, Fehler! Keine Daten von der API Erhalten...",
     errorBrowser = "Sorry, Fehler! Dein Brower ist warscheinlich outdated... - http://outdatedbrowser.com/de",
     errorReload = "Ein Fehler ist aufgetreten. Versuche es später erneut.",
@@ -22,6 +24,12 @@ const error = "Fehler!",
     successPost = "Send Data finished.",
     errorNoDay = "Error, no Day selected!",
     errorFalseAuthKey = "Error, password to save your data is wrong.";
+
+const mensaID = ["Mensa0", "Mensa1"],
+    speiseElemente = ["name", "beschreibung", "beachte", "preis", "kcal", "fette", "eiweisse", "kolenhydrate", "zusatzstoffe"];
+let speiseTypenMensa0 = ["Vorspeise", "Vegetarisch", "Vollkost", "Beilagen", "Dessert"],
+    speiseTypenMensa1 = ["Vorspeise", "Leichte-Vollkost", "Gemüseteller", "Dessert"];
+
 
 //////////////////////////////////////////////////
 // LETTE MENSA WEBSITE - (C) 2016/7 			//
