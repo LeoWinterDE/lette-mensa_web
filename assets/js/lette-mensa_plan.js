@@ -89,7 +89,11 @@ function setButtonsAndMeal(date) {
         for (let i = 0; i < buttons.length; i++) {
             let btnPlus = "+" + [progs[i]].toString();
             for (let i2 = 0; i2 < 2; i2++) {
+<<<<<<< HEAD
                 $("#d" + eval([i])).text(eval("d" + [progs[i]] + "name") + " - " + getDatePlus(date, btnPlus, "DD.MM")).on("click", function (event) {
+=======
+                $("#d" + eval([i])).text(eval("d" + [progs[i]] + "name") + " - " + getDatePlus(date, +0, "DD.MM")).on("click", function (event) {
+>>>>>>> 10cc95d9a96b901dd756254ea46a9279a4f74dbd
                     event.preventDefault();
                     setMeal(getDatePlus(date, btnPlus, "YYYY-MM-DD"));
                     setTitle(getDatePlus(date, btnPlus, "YYYY-MM-DD"));
