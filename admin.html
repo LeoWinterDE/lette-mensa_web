@@ -26,7 +26,8 @@
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/g/jquery@2.2.4,jquery.easing@1.3(jquery.easing.1.3.min.js),bootstrap@3.3.7,momentjs@2.17.1(moment-with-locales.min.js),bootstrap.datepicker-fork@1.6.4,selectize@0.12.4(js/standalone/selectize.min.js),bootstrap3-dialog@1.35.3"></script>
     <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/g/bootstrap@3.3.7(css/bootstrap.min.css),bootstrap.datepicker-fork@1.6.4(css/bootstrap-datepicker.min.css),selectize@0.12.4(css/selectize.bootstrap3.css)" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/g/bootstrap@3.3.7(css/bootstrap.min.css),bootstrap.datepicker-fork@1.6.4(css/bootstrap-datepicker.min.css),selectize@0.12.4(css/selectize.bootstrap3.css)"
+        rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lora|Montserrat:400,700" rel="stylesheet">
@@ -47,7 +48,7 @@
     <!-- Nav -->
 
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-main-collapse" data-toggle="collapse" type="button"><i class="fa fa-bars"></i></button> <a class="navbar-brand page-scroll" href="#page-top"><span class="light">Admin Tool</span> <i class="fa fa-cutlery"></i> <span class="light">Mensa</span> Plan</a></div>
+        <div class="navbar-header"><button class="navbar-toggle" data-target=".navbar-main-collapse" data-toggle="collapse" type="button"><i class="fa fa-bars"></i></button>            <a class="navbar-brand page-scroll" href="#page-top"><span class="light">Admin Tool</span> <i class="fa fa-cutlery"></i> <span class="light">Mensa</span> Plan</a></div>
 
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
@@ -137,15 +138,16 @@
 
                     <tbody>
                         <tr>
-                            <td><select class="select-name form-control" id="Mensa0-Vorspeise-name" placeholder="Name" type="text"></select>
+                            <td><select class="form-control Vorspeise-name" id="Mensa0-Vorspeise-name" placeholder="Name" type="text"></select>
                             </td>
-                            <td><select class="select-name form-control" id="Mensa0-Vegetarisch-name" placeholder="Name" type="text"></select>
+                            <td><select class="form-control Vegetarisch-name" id="Mensa0-Vegetarisch-name" placeholder="Name"
+                                    type="text"></select>
                             </td>
-                            <td><select class="select-name form-control" id="Mensa0-Vollkost-name" placeholder="Name" type="text"></select>
+                            <td><select class="form-control Vollkost-name" id="Mensa0-Vollkost-name" placeholder="Name" type="text"></select>
                             </td>
-                            <td><select class="select-name form-control" id="Mensa0-Beilagen-name" placeholder="Name" type="text"></select>
+                            <td><select class="form-control Beilagen-name" id="Mensa0-Beilagen-name" placeholder="Name" type="text"></select>
                             </td>
-                            <td><select class="select-name form-control" id="Mensa0-Dessert-name" placeholder="Name" type="text"></select>
+                            <td><select class="form-control Dessert-name" id="Mensa0-Dessert-name" placeholder="Name" type="text"></select>
                             </td>
                         </tr>
 
@@ -177,92 +179,113 @@
 
                         <tr>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-preis" placeholder="Preis" type="text"> <span class="input-group-addon">€</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-preis" placeholder="Preis" type="text">                                    <span class="input-group-addon">€</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-preis" placeholder="Preis" type="text"> <span class="input-group-addon">€</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-preis" placeholder="Preis" type="text">                                    <span class="input-group-addon">€</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vollkost-preis" placeholder="Preis" type="text"> <span class="input-group-addon">€</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vollkost-preis" placeholder="Preis" type="text">
+                                    <span
+                                        class="input-group-addon">€</span>
+                                </div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Beilagen-preis" placeholder="Preis" type="text"> <span class="input-group-addon">€</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Beilagen-preis" placeholder="Preis" type="text">
+                                    <span
+                                        class="input-group-addon">€</span>
+                                </div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Dessert-preis" placeholder="Preis" type="text"><span class="input-group-addon">€</span>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Dessert-preis" placeholder="Preis" type="text">
+                                    <span
+                                        class="input-group-addon">€</span>
                                 </div>
                             </td>
                         </tr>
 
                         <tr>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-kcal" placeholder="Kilokalorien" type="text">                                    <span class="input-group-addon">kcal</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-kcal" placeholder="Kilokalorien" type="text">                                    <span class="input-group-addon">kcal</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vollkost-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vollkost-kcal" placeholder="Kilokalorien" type="text">                                    <span class="input-group-addon">kcal</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Beilagen-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Beilagen-kcal" placeholder="Kilokalorien" type="text">                                    <span class="input-group-addon">kcal</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Dessert-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
-                            </td>
-                            <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
-                            </td>
-                            <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vollkost-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
-                            </td>
-                            <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Beilagen-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
-                            </td>
-                            <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Dessert-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Dessert-kcal" placeholder="Kilokalorien" type="text">                                    <span class="input-group-addon">kcal</span></div>
                             </td>
                         </tr>
 
                         <tr>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-fette" placeholder="Fette" type="text">                                    <span class="input-group-addon">g</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-fette" placeholder="Fette" type="text">                                    <span class="input-group-addon">g</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vollkost-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vollkost-fette" placeholder="Fette" type="text">
+                                    <span
+                                        class="input-group-addon">g</span>
+                                </div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Beilagen-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Beilagen-fette" placeholder="Fette" type="text">
+                                    <span
+                                        class="input-group-addon">g</span>
+                                </div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Dessert-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Dessert-fette" placeholder="Fette" type="text">
+                                    <span
+                                        class="input-group-addon">g</span>
+                                </div>
                             </td>
                         </tr>
 
                         <tr>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-kolenhydrate" placeholder="Kolenhydrate" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-eiweisse" placeholder="Eiweiß" type="text">                                    <span class="input-group-addon">g</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-kolenhydrate" placeholder="Kolenhydrate" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-eiweisse" placeholder="Eiweiß" type="text">                                    <span class="input-group-addon">g</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Vollkost-kolenhydrate" placeholder="Kolenhydrate" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vollkost-eiweisse" placeholder="Eiweiß" type="text">                                    <span class="input-group-addon">g</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Beilagen-kolenhydrate" placeholder="Kolenhydrate" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Beilagen-eiweisse" placeholder="Eiweiß" type="text">                                    <span class="input-group-addon">g</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa0-Dessert-kolenhydrate" placeholder="Kolenhydrate" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Dessert-eiweisse" placeholder="Eiweiß" type="text">                                    <span class="input-group-addon">g</span></div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vorspeise-kolenhydrate" placeholder="Kolenhydrate"
+                                        type="text"> <span class="input-group-addon">g</span></div>
+                            </td>
+                            <td>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vegetarisch-kolenhydrate" placeholder="Kolenhydrate"
+                                        type="text"> <span class="input-group-addon">g</span></div>
+                            </td>
+                            <td>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Vollkost-kolenhydrate" placeholder="Kolenhydrate"
+                                        type="text"> <span class="input-group-addon">g</span></div>
+                            </td>
+                            <td>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Beilagen-kolenhydrate" placeholder="Kolenhydrate"
+                                        type="text"> <span class="input-group-addon">g</span></div>
+                            </td>
+                            <td>
+                                <div class="input-group"><input class="form-control" id="Mensa0-Dessert-kolenhydrate" placeholder="Kolenhydrate" type="text">                                    <span class="input-group-addon">g</span></div>
                             </td>
                         </tr>
 
@@ -311,22 +334,26 @@
 
                     <tbody>
                         <tr>
-                            <td><input class="select-name form-control" id="Mensa1-Vorspeise-name" placeholder="Name" type="text">
+                            <td><input class="Vorspeise-name form-control" id="Mensa1-Vorspeise-name" placeholder="Name" type="text">
                             </td>
-                            <td><input class="select-name form-control" id="Mensa1-Leichte-Vollkost-name" placeholder="Name" type="text">
+                            <td><input class="Leichte-Vollkost-name form-control" id="Mensa1-Leichte-Vollkost-name" placeholder="Name"
+                                    type="text">
                             </td>
-                            <td><input class="select-name form-control" id="Mensa1-Gemüseteller-name" placeholder="Name" type="text">
+                            <td><input class="Gemüseteller-name form-control" id="Mensa1-Gemüseteller-name" placeholder="Name"
+                                    type="text">
                             </td>
-                            <td><input class="select-name form-control" id="Mensa1-Dessert-name" placeholder="Name" type="text">
+                            <td><input class="Dessert-name form-control" id="Mensa1-Dessert-name" placeholder="Name" type="text">
                             </td>
                         </tr>
 
                         <tr>
                             <td><input class="form-control" id="Mensa1-Vorspeise-beschreibung" placeholder="Beschreibung" type="text">
                             </td>
-                            <td><input class="form-control" id="Mensa1-Leichte-Vollkost-beschreibung" placeholder="Beschreibung" type="text">
+                            <td><input class="form-control" id="Mensa1-Leichte-Vollkost-beschreibung" placeholder="Beschreibung"
+                                    type="text">
                             </td>
-                            <td><input class="form-control" id="Mensa1-Gemüseteller-beschreibung" placeholder="Beschreibung" type="text">
+                            <td><input class="form-control" id="Mensa1-Gemüseteller-beschreibung" placeholder="Beschreibung"
+                                    type="text">
                             </td>
                             <td><input class="form-control" id="Mensa1-Dessert-beschreibung" placeholder="Beschreibung" type="text">
                             </td>
@@ -356,55 +383,61 @@
 
                         <tr>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Vorspeise-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Vorspeise-kcal" placeholder="Kilokalorien" type="text">                                    <span class="input-group-addon">kcal</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Leichte-Vollkost-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Leichte-Vollkost-kcal" placeholder="Kilokalorien"
+                                        type="text"> <span class="input-group-addon">kcal</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Gemüseteller-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Gemüseteller-kcal" placeholder="Kilokalorien" type="text">                                    <span class="input-group-addon">kcal</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Dessert-kcal" placeholder="Kilokalorien" type="text"> <span class="input-group-addon">kcal</span></div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Vorspeise-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
-                            </td>
-                            <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Leichte-Vollkost-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
-                            </td>
-                            <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Gemüseteller-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
-                            </td>
-                            <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Dessert-fette" placeholder="Fette" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Dessert-kcal" placeholder="Kilokalorien" type="text">                                    <span class="input-group-addon">kcal</span></div>
                             </td>
                         </tr>
 
                         <tr>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Vorspeise-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Vorspeise-fette" placeholder="Fette" type="text">                                    <span class="input-group-addon">g</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Leichte-Vollkost-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Leichte-Vollkost-fette" placeholder="Fette" type="text">                                    <span class="input-group-addon">g</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Gemüseteller-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Gemüseteller-fette" placeholder="Fette" type="text">                                    <span class="input-group-addon">g</span></div>
                             </td>
                             <td>
-                                <div class="input-group"><input class="form-control" id="Mensa1-Dessert-eiweisse" placeholder="Eiweiß" type="text"> <span class="input-group-addon">g</span></div>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Dessert-fette" placeholder="Fette" type="text">
+                                    <span
+                                        class="input-group-addon">g</span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Vorspeise-eiweisse" placeholder="Eiweiß" type="text">                                    <span class="input-group-addon">g</span></div>
+                            </td>
+                            <td>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Leichte-Vollkost-eiweisse" placeholder="Eiweiß" type="text">                                    <span class="input-group-addon">g</span></div>
+                            </td>
+                            <td>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Gemüseteller-eiweisse" placeholder="Eiweiß" type="text">                                    <span class="input-group-addon">g</span></div>
+                            </td>
+                            <td>
+                                <div class="input-group"><input class="form-control" id="Mensa1-Dessert-eiweisse" placeholder="Eiweiß" type="text">                                    <span class="input-group-addon">g</span></div>
                             </td>
                         </tr>
 
                         <tr>
                             <td><input class="form-control" id="Mensa1-Vorspeise-kolenhydrate" placeholder="Kolenhydrate" type="text">
                             </td>
-                            <td><input class="form-control" id="Mensa1-Leichte-Vollkost-kolenhydrate" placeholder="Kolenhydrate" type="text">
+                            <td><input class="form-control" id="Mensa1-Leichte-Vollkost-kolenhydrate" placeholder="Kolenhydrate"
+                                    type="text">
                             </td>
-                            <td><input class="form-control" id="Mensa1-Gemüseteller-kolenhydrate" placeholder="Kolenhydrate" type="text">
+                            <td><input class="form-control" id="Mensa1-Gemüseteller-kolenhydrate" placeholder="Kolenhydrate"
+                                    type="text">
                             </td>
                             <td><input class="form-control" id="Mensa1-Dessert-kolenhydrate" placeholder="Kolenhydrate" type="text">
                             </td>
@@ -425,7 +458,8 @@
 
                 <div class="panel panel-default">
                     <div class="panel-body center-block">
-                        <div aria-label="Button Nav" class="btn-group" role="group"><button class="btn btn-warning" id="back" type="submit">Zurück</button> <button class="btn btn-primary" id="cancel" onclick="location.reload();" type="submit">Eintrag verwerfen</button></div>
+                        <div aria-label="Button Nav" class="btn-group" role="group"><button class="btn btn-warning" id="back" type="submit">Zurück</button> <button class="btn btn-primary"
+                                id="cancel" onclick="location.reload();" type="submit">Eintrag verwerfen</button></div>
                     </div>
 
                     <div class="panel-footer"><button class="btn btn-danger" id="SubmitAndSave" type="submit">Absenden und Speichern</button>

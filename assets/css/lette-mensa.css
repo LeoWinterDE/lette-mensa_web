@@ -25,14 +25,14 @@ h6 {
 }
 
 p {
-    /*margin: 0 0 25px;*/
+    margin: 0 0 0px;
     font-size: 18px;
     line-height: 1.5;
 }
 
 @media(min-width:768px) {
     p {
-        /*margin: 0 0 35px;*/
+        margin: 0 0 0px;
         font-size: 20px;
         line-height: 1.6;
     }
@@ -308,12 +308,7 @@ a:focus {
 
 .content-section {
     padding-top: 100px;
-    background: #ECE9E6;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #ECE9E6, #FFFFFF);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #ECE9E6, #FFFFFF);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #f1f1f1;
 }
 
 @media(min-width:767px) {
@@ -463,7 +458,6 @@ body {
 
 
 /*collapsible panel*/
-
 .clickable {
     cursor: pointer;
 }
@@ -475,7 +469,6 @@ body {
 
 
 /*Loader*/
-
 .sk-folding-cube {
     margin: 20px auto;
     width: 40px;

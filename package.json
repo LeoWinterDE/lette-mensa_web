@@ -1,7 +1,7 @@
 {
-  "name": "lette-mensa_webfrontend",
+  "name": "lette-mensa_web",
   "version": "1.0.0",
-  "description": "WebFrontend part of the Lette-Verein Berlin Mensa Plan - https://github.com/LeoWinterDE/lette-mensa",
+  "description": "WebFrontend part of the Lette-Verein Berlin Mensa Plan - https://github.com/LetteVerein/lette-mensa",
   "main": "dev-server.js",
   "scripts": {
     "dev": "nodemon server",
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/LeoWinterDE/lette-mensa.git"
+    "url": "git://github.com/LetteVerein/lette-mensa_web.git"
   },
   "bugs": {
     "url": "https://github.com/LeoWinterDE/lette-mensa/issues"
   },
-  "homepage": "https://github.com/LeoWinterDE/lette-mensa",
+  "homepage": "https://github.com/LetteVerein/lette-mensa_web",
   "author": "Leo Winter <mail@leowinter.de>",
   "license": "MIT",
   "devDependencies": {
