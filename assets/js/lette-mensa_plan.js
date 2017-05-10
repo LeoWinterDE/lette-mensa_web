@@ -81,7 +81,9 @@ function setButtonsAndMeal(date) {
     function runInit(date) {
         loadJSON(date);
         setTitle(date);
-        setMeal(date);
+        setTimeout(function(){
+            setMeal(date);
+        }, 2000);
     }
 
     // set text (date and datename) on buttons and mensa text headline. On click switch to the right day.
@@ -128,22 +130,16 @@ function setButtonsAndMeal(date) {
     }
 
     function setMeal(date) {
-<<<<<<< Updated upstream
         let sessionStorageName = "mensa-day_" + date;
-
         if (sessionStorage.getItem(sessionStorageName) === null) {
-=======
-        let localStorageName = "mensa-day_" + date;
-        if (localStorage.getItem(localStorageName) === null) {
->>>>>>> Stashed changes
             console.warn(errorAPINull + date);
             loadJSON(date);
         } else {
             try {
                 console.debug("Meal set assignment for the " + date + ", start...");
                 const data = JSON.parse(sessionStorage.getItem(sessionStorageName));
-                setMeal(mensaID[0], date, data);
-                setMeal(mensaID[1], date, data);
+                setMealItem(mensaID[0], date, data);
+                setMealItem(mensaID[1], date, data);
                 console.debug("Meal set assignment for the " + date + " , done.");
             } catch (error) {
                 console.error(errorAPI)
@@ -153,15 +149,11 @@ function setButtonsAndMeal(date) {
             }
         }
 
-<<<<<<< Updated upstream
-        function setMeal(mensa, date, data) {
-=======
         function setMealItem(mensa, date, data) {
->>>>>>> Stashed changes
             if (mensa == mensaID[0]) {
-                let speiseTypen = speiseTypenMensa0;
+                var speiseTypen = speiseTypenMensa0;
             } else if (mensa == mensaID[1]) {
-                let speiseTypen = speiseTypenMensa1;
+                var speiseTypen = speiseTypenMensa1;
             } else {
                 console.error("Error! No mensa selected.")
                 reloadPage();

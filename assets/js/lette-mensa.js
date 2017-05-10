@@ -118,12 +118,8 @@ function loadJSON(date) {
         dataType: 'json',
     }).done(function responseHandler(data) {
         console.debug("GET, " + date + sucessAPI);
-<<<<<<< Updated upstream
         let sessionStorageName = "mensa-day_" + date;
         sessionStorage.setItem(sessionStorageName, JSON.stringify(data));
-=======
-        localStorage.setItem("mensa-day_" + date, JSON.stringify(data));
->>>>>>> Stashed changes
     }).fail(function errorHandler(jqXHR, textStatus, errorThrown) {
         console.error(errorAPIOffline)
         console.error(jqXHR)
