@@ -120,7 +120,6 @@ function setButtonsAndMeal(date) {
         try {
             for (let i = 1; i < progs.length; i++) {
                 let datePlus = "+" + [progs[i]].toString();
-                console.log(datePlus);
                 loadJSON(getDatePlus(date, datePlus, "YYYY-MM-DD"));
             }
         } catch (error) {
@@ -129,9 +128,14 @@ function setButtonsAndMeal(date) {
     }
 
     function setMeal(date) {
+<<<<<<< Updated upstream
         let sessionStorageName = "mensa-day_" + date;
 
         if (sessionStorage.getItem(sessionStorageName) === null) {
+=======
+        let localStorageName = "mensa-day_" + date;
+        if (localStorage.getItem(localStorageName) === null) {
+>>>>>>> Stashed changes
             console.warn(errorAPINull + date);
             loadJSON(date);
         } else {
@@ -149,7 +153,11 @@ function setButtonsAndMeal(date) {
             }
         }
 
+<<<<<<< Updated upstream
         function setMeal(mensa, date, data) {
+=======
+        function setMealItem(mensa, date, data) {
+>>>>>>> Stashed changes
             if (mensa == mensaID[0]) {
                 let speiseTypen = speiseTypenMensa0;
             } else if (mensa == mensaID[1]) {
